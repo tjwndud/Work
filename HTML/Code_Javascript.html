@@ -1,0 +1,53 @@
+    <html>
+    
+    <script language="javascript">
+    
+        function aclick(msg){
+        alert("Clicked!!!");
+        alert(msg);
+
+        }
+        function oncalcul(){
+
+            //변수선언 : var,let,const
+           var vnum1,   vnum2;
+           vnum1 = window.frm1.num1.value;
+           vnum2 = window.frm1.num2.value;
+           
+            var result = parseInt(vnum1) + parseInt(vnum2);
+            
+            alert("result="+result);
+             
+
+        }
+    
+    </script>
+    
+    <head>
+        <title>SAP code Java Script </title>
+    
+    <body>
+    
+    
+        <hr>
+        <h1> <marquee scrollamount="5"> SAP Code Javascript </marquee> </h1>
+        <hr>
+        
+        <center>
+        
+        <form id="frm1">
+        <table border="1" width="500" height="80">
+        
+            <tr>
+            
+            <td> <button id="btn1" onclick="aclick()">Click</button> </td>
+            <td> <input type="text" id="num1"> + <input type="text" id="num2">
+                <button id="btn2" onclick="oncalcul()">Calcul</button> 
+            </tr>
+        
+        </form>
+
+        </center>
+    
+    </body>
+    </html>
