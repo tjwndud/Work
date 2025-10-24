@@ -58,7 +58,7 @@ sap.ui.define([
             let vChar;
 
             vChar = this.getView().byId("fruits").getValue();
-            console.log
+            
 
             switch (vChar) {
                 case "A":

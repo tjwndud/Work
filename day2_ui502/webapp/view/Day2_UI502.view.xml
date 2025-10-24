@@ -1,0 +1,25 @@
+<mvc:View controllerName="code.cl3.day2ui502.controller.Day2_UI502"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox >
+           <HBox >
+             <Input id="h1" placeholder="Horizon" /> 
+            </HBox>
+
+            <HBox>
+             <Input id="v1" placeholder="Vertical"/>
+            </HBox>
+
+            
+            <HBox>
+             <Text id="area" text=" Area" />
+            </HBox>
+            
+            <Button text="Calcul" press = "onCal()"/>
+          
+               
+            
+        </VBox>
+    </Page>
+</mvc:View>
