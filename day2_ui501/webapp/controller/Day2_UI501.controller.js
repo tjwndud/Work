@@ -59,7 +59,7 @@ sap.ui.define([
                 console.log("i.Class ="+i.Class );
             } 
 
-
+        
 
          },
         onCalcul() {

@@ -1,0 +1,31 @@
+<mvc:View controllerName="code.cl3.day3ui501.controller.DAY3_UI501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    
+    <!-- Size(넓이, 높이) : PX, REM -->
+    <VBox>
+        <HBox >
+             <Input id = "vnum1" placeholder="구구단수 입력:"
+                 width="120px" 
+                 showClearIcon="true"/>
+             <Button text= "Calcul" type="Success" press="onCal"/>
+         </HBox>
+
+         <HBox >
+            <Input id = "dnum1" placeholder="구구단수 입력:" width="120px"/>
+            <Button text= "calcul" type="Critical" press="onCAL"/>
+         </HBox>
+
+         <HBox >
+         <Input id = "value1" width="200px"/>
+         <Button id = "btn1" text="Button" press = "onChange()"/>
+         </HBox>
+
+         <HBox >
+         <Input id = "Text1" width = "200px"/>
+         <Button id = "btn2" text="Button" press="onExchange()"/>
+         </HBox>
+    </VBox>
+    </Page>
+</mvc:View> 
