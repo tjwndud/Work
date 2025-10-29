@@ -1,0 +1,77 @@
+<mvc:View controllerName="code.cl3.day5ui502.controller.Day5_UI502"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+           <VBox >
+
+                <Panel  
+                class="sapUiResponsiveMargin"
+                headerText="{panel>/panelSet/header}"
+                width = "{panel>/panelSet/width}"
+                height="{panel>/panelSet/height}"
+                >
+ 
+                    <headerToolbar>
+                        <Toolbar >
+                            <ToolbarSpacer />
+                                <Title text="Json"/>
+                            <ToolbarSpacer />
+                        </Toolbar>
+                    </headerToolbar>
+
+                <HBox >
+
+                    <!-- <Button text = "Say Hello"  press = "onShow()" class = "sapUiSmallMarginBegin"/>
+
+                    <Input    value="{/recipient/name}" 
+                    description="Hello  {/recipient/name}"   
+                    valueLiveUpdate="true" 
+                    class ="sapUiSmallMarginBegin" />
+                     -->
+
+                     <Button class="sapUiSmallMarginBegin"
+                     text="{/buttonSet/text}"
+                     type="{/buttonSet/type}"
+                     icon="{/buttonSet/icon}"
+                      />
+
+                     <Input value="{/inputSet/value}"
+                     placeholder="{/inputSet/holder}" 
+                     width="{/inputSet/width}"
+                     description="{/inputSet/desc}"
+                     class ="sapUiSmallMarginBegin"/>
+                     
+                </HBox>
+                    
+          
+
+                </Panel>
+
+                   
+                <Panel 
+                headerText="{/dinputSet/headerText}"
+                width="{/dinputSet/width}"
+                height="{/dinputSet/height}"
+                >
+                <Input
+                value="{/ainputSet/value}"
+                description="{/ainputSet/description}"
+                width="{/ainputSet/width}"
+                />
+                 <Input
+                value="{/binputSet/value}"
+                description="{/binputSet/description}"
+                width="{/binputSet/width}"
+                />
+                 <Input
+                value="{/cinputSet/value}"
+                description="{/cinputSet/description}"
+                width="{/cinputSet/width}"
+                />
+                </Panel>
+
+         
+            </VBox>
+    </Page>
+</mvc:View>

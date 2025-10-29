@@ -1,0 +1,56 @@
+<mvc:View controllerName="code.cl3.day5ui503.controller.Day_UI503"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <VBox >
+        <Panel width="40%" class="sapUiResponsiveMargin">
+
+
+                    <headerToolbar>
+                        <Toolbar >
+                            <ToolbarSpacer />
+                                <Title text="Log In"/>
+                            <ToolbarSpacer />
+                        </Toolbar>
+                    </headerToolbar>
+                   
+                    <HBox alignItems="Center"  >
+                     <Label text="User ID" class = "sapUiSmallMarginBegin" width="60px"/>
+                     <Input id = "num1" placeholder="ID" width="200px" /> 
+                    </HBox>
+
+                   
+                    <HBox  alignItems="Center">
+                     <Label text = "Pw" class="sapUiSmallMarginBegin" width="60px"/>
+                    <Input id = "res1"  placeholder="Pw" width="200px" type="Password"/>
+                    </HBox>
+                      <Button text="로그인" press="onSearch()"/>
+
+        </Panel>
+
+           <Panel width="40%" class="sapUiResponsiveMargin">
+
+
+                    <headerToolbar>
+                        <Toolbar >
+                            <ToolbarSpacer />
+                                <Title text="InSearch"/>
+                            <ToolbarSpacer />
+                        </Toolbar>
+                    </headerToolbar>
+
+
+                    <HBox >
+                    <Input id= "num2" class = "sapUiSmallMarginBegin" width="100px" placeholder="Put"/>
+                    </HBox>
+                    <HBox >
+                       <Input id="num3" class = "sapUiSmallMarginBegin" width="100px" placeholder="Result"/>
+                    </HBox>
+                    <HBox>
+                     <Button text="Find" press="onFind()" class =" sapUiSmallMarginBegin"/>
+                    </HBox>
+                   
+            </Panel>
+    </VBox>
+    </Page>
+</mvc:View>

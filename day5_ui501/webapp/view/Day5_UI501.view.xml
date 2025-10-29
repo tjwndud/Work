@@ -1,0 +1,30 @@
+    <mvc:View xmlns:vk="sap.ui.vk" controllerName="code.cl3.day5ui501.controller.Day5_UI501"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m">
+        <Page id="page" title="{i18n>title}">
+            <VBox >
+
+                <Panel width="40%" class="sapUiResponsiveMargin">
+
+                    <headerToolbar>
+                        <Toolbar >
+                            <ToolbarSpacer />
+                                <Title text="Array Searcher"/>
+                            <ToolbarSpacer />
+                        </Toolbar>
+                    </headerToolbar>
+                    
+                     <HBox justifyContent="Center">
+                <Input id = "num1" width="100px" placeholder="search"/>
+                <Button text="Create" press="onCre()" class="sapUiSmallMarginBegin"/> 
+                <Button text="Delete" press="onDel()" class="sapUiSmallMarginBegin"/>
+                <Button text="Search" press="onSearch()" class="sapUiSmallMarginBegin" />            
+                    </HBox>
+
+                    <HBox justifyContent="Center">
+                    <Input id = "res1" width="200px" placeholder="Result" editable="false"/>
+                    </HBox>
+                </Panel>
+            </VBox>
+        </Page>
+    </mvc:View>

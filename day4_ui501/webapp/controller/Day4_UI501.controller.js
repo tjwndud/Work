@@ -157,11 +157,13 @@ sap.ui.define([
         onDel(){
             
             let dArry = this.getView().byId("arr1").getValue();
-            let found=false;
+           // let found=false;
+            let vCompare=0;
             for (let k of aArray) {
                if (k == dArry) {
-                console.log("MAtCh");
-                found = true;
+               // console.log("MAtCh");
+                //found = true;
+                vCompare=k
                 break;
                 
                 // if(k == dArry){
@@ -173,12 +175,18 @@ sap.ui.define([
            
                 // }
              }     
-        }
-        
-             if (!found) {
+                 }
+                 if(dArry == vCompare){
+                console.log("Match");
+                 } else {
                 aArray.push(dArry);
                 console.log("aArray =", aArray);
-              }
+                 }
+         
+            //  if (!found) {
+            //     aArray.push(dArry);
+            //     console.log("aArray =", aArray);
+            //   }
         }
 
     });
