@@ -1,0 +1,21 @@
+{
+
+    "kostlSet" : [
+        {"kostl" : "KS001" , "Ktext" : "Guro center", "kstar" : "0098638431"},
+        {"kostl" : "KS002" , "Ktext" : "Jongro center", "kstar" : "0097638431"},
+        {"kostl" : "KS003" , "Ktext" : "Songpa center", "kstar" : "0096638431"},
+        {"kostl" : "KS004" , "Ktext" : "Gangnam center", "kstar" : "0095638431"},
+        {"kostl" : "KS005" , "Ktext" : "Seocho center", "kstar" : "0093638431"}
+    ],
+
+    "prctrSet" : [
+        {"prctr" : "PC001", "gtext" : "APR KK01", "hkont" : "0075398201" },
+        {"prctr" : "PC001", "gtext" : "ADR KY01", "hkont" : "0075398203" },
+        {"prctr" : "PC001", "gtext" : "ACR KO01", "hkont" : "0075398205" },
+        {"prctr" : "PC001", "gtext" : "AKR KP01", "hkont" : "0075398207" },
+        {"prctr" : "PC001", "gtext" : "AMR KM01", "hkont" : "0075398209" }
+    ]
+
+
+}
+

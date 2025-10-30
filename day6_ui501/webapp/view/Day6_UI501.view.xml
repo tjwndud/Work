@@ -1,0 +1,129 @@
+<mvc:View controllerName="code.cl3.day6ui501.controller.Day6_UI501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:n="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    height="100%"	
+    >
+    
+    <Page id="page" title="{i18n>title}">
+
+        <VBox >
+            <HBox >
+            <Panel headerText="{panel>/panelSet/header}"
+            width="{panel>/panelSet/width}"
+            height="{panel>/panelSet/height}"
+            >
+             
+                    <Label text = "{/labelSet/text}"
+                    width="{/labelSet/width}"
+                    vAlign = "{/labelSet/vAlign}"
+                    />
+
+                    <Input value ="{/inputSet/value}"
+                    placeholder="{/inputSet/holder}"
+                    width="{/inputSet/width}"
+                    description="{/inputSet/desc}"
+                    />
+                    
+                    <Button text = "{/buttonSet/text}"
+                    type = "{/buttonSet/type}"
+                    press = "{/buttonSet/press}"
+                    icon="{/buttonSet/icon}"
+                    />
+            </Panel>
+            </HBox>
+
+            <HBox >
+                <Panel >
+                    <VBox >
+                        <HBox >
+                            <Input value = "{file>/inputSet/value}" width = "{file>/inoutSet/width}"/>
+                            <Button text = "{file>/buttonSet/text}" type= "{file>/buttonSet/type}"/>
+  
+                        </HBox>    
+                    </VBox>
+                </Panel>
+            </HBox>
+
+            <HBox >
+                <Panel headerText="{getfile>/panelSet/header}"
+            width="{getfile>/panelSet/width}"
+            height="{getfile>/panelSet/height}"
+            >
+                      <Label text = "{getfile>/labelSet/text}"
+                    width="{getfile>/labelSet/width}"
+                    vAlign = "{getfile>/labelSet/vAlign}"
+                    />
+
+                    <Input value ="{getfile>/inputSet/value}"
+                    placeholder="{getfile>/inputSet/holder}"
+                    width="{getfile>/inputSet/width}"
+                    description="{getfile>/inputSet/desc}"
+                    />
+                    
+                    <Button text = "{getfile>/buttonSet/text}"
+                    type = "{getfile>/buttonSet/type}"
+                    press = "{getfile>/buttonSet/press}"
+                    icon="{getfile>/buttonSet/icon}"
+                    />
+
+                 <Button text="Array" press = "onArray()"/>
+                </Panel>
+                
+               
+                
+            </HBox>
+            
+            <Panel width="auto" class = "sapUiResponsuveMargin">
+            <VBox >
+               <n:Table
+                        rows="{air>/airlineSet}"
+				        selectionMode="None"
+				        paste="onPaste"
+				        ariaLabelledBy="title"
+                        >
+                        
+                <n:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Airline master"/>
+					</OverflowToolbar>
+				</n:extension>
+                <n:columns>
+                    <n:Column width="11rem">
+						<Label text="Airline code" />
+						<n:template>
+							<Text text="{air>Aircd}" wrapping="false" />
+						</n:template>
+					</n:Column>
+                    <n:Column width="11rem">
+						<Label text="Airline name" />
+						<n:template>
+							<Text text="{air>Airline}" wrapping="false" />
+						</n:template>
+					</n:Column>
+                    <n:Column width="11rem">
+						<Label text="Home page" />
+						<n:template>
+							<Text text="{air>Url}" wrapping="false" />
+						</n:template>
+					</n:Column>
+                     <n:Column width="11rem">
+						<Label text="Currency" />
+						<n:template>
+							<Text text="{air>Curr}" wrapping="false" />
+						</n:template>
+                        
+					</n:Column>
+                </n:columns>
+                </n:Table>
+            </VBox>
+            </Panel>
+
+
+
+        </VBox>
+    
+    </Page>
+</mvc:View>

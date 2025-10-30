@@ -1,0 +1,86 @@
+<mvc:View controllerName="code.cl3.day6ui502.controller.Day6_UI502"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:m="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    >
+    <Page id="page" title="{i18n>title}">
+
+        <Panel class="sapUiResponsuveMargin" width="auto">
+            <VBox >
+                <m:Table rows="{/kostlSet}"
+				selectionMode="Single"
+                visibleRowCount="6"
+                >
+                <m:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Costcenter Master"/>
+					</OverflowToolbar>
+				</m:extension>
+                <m:columns>
+                        <m:Column width="11rem">
+						<Label text="Costcenter Code" />
+						<m:template>
+							<Text text="{kostl}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Costcenter Name" />
+						<m:template>
+							<Text text="{Ktext}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Cost Element"/>
+						<m:template>
+							<Text text="{kstar}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+                
+                </m:columns>
+
+                </m:Table>
+                     <!-- visibleRowCount는 설정한 만큼의 테이블을 보여준다 -->
+                 <m:Table rows="{/prctrSet}"
+				selectionMode="Single"
+                visibleRowCount="6"
+                >
+                <m:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title1" text="Profitcenter master"/>
+					</OverflowToolbar>
+				</m:extension>
+                <m:columns>
+                        <m:Column width="11rem">
+						<Label text="Profitcenter Code" />
+						<m:template>
+							<Text text="{prctr}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Profitcenter Name" />
+						<m:template>
+							<Text text="{gtext}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Cost Element"/>
+						<m:template>
+							<Text text="{hkont}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+                
+                </m:columns>
+
+                </m:Table>
+            </VBox>        
+        </Panel>
+
+
+    </Page>
+</mvc:View>

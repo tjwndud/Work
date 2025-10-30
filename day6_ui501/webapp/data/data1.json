@@ -1,0 +1,39 @@
+{
+
+   "inputSet" :{
+     "vlaue": "JSON Article title",
+     "holder": "JSON Place Holder",
+     "width" : "270px",
+     "desc" : "JSON Description"
+    },
+    
+    "buttonSet" :{
+      "text" : "Confirm",
+      "type" : "Accept",
+      "icon" : "sap-icon://check-availability"
+    },
+    "labelSet" : {
+      "text": "JSOM Label",
+      "width" : "100px",
+      "vAlign" : "Bottom"
+    },
+    "panelSet" : {
+      "header" : "UI5 JSoN Header",
+      "width" : "auto",
+      "height" : "400px"
+   
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+}
