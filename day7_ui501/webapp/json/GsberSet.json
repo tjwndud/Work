@@ -1,0 +1,25 @@
+{
+    "gsberSet" : [
+        { "Gsber" : "BIZ001", "Gtext" : "Electronic", "Anfnr" : "PR001", "Kunnr" : "CS001"},
+        { "Gsber" : "BIZ003", "Gtext" : "Vehicle", "Anfnr" : "PR0A1", "Kunnr" : "CS015"},
+        { "Gsber" : "BIZ005", "Gtext" : "Food", "Anfnr" : "PRC01", "Kunnr" : "CS351"},
+        { "Gsber" : "BIZ007", "Gtext" : "Health", "Anfnr" : "PRAB7", "Kunnr" : "CS706"},
+        { "Gsber" : "BIZ008", "Gtext" : "Steel", "Anfnr" : "PRST1", "Kunnr" : "CS0A1"}
+    ],
+
+    "ChartSet" : [
+        {"Carried" : "AA", "Price" : 45205 },
+        {"Carried" : "LH", "Price" : 51452 },
+        {"Carried" : "KO", "Price" : 250000 },
+        {"Carried" : "DL", "Price" : 52621 },
+        {"Carried" : "AS", "Price" : 245000 }
+
+    ],
+    "ProfitSet" : [
+        { "Prdid" : "ElE01", "Prdnm" : "Electronic", "Profit": "45205"},
+        { "Prdid" : "ElE02", "Prdnm" : "Vehicle", "Profit": "51452"},
+        { "Prdid" : "ElE03", "Prdnm" : "Food", "Profit": "250000"},
+        { "Prdid" : "ElE04", "Prdnm" : "Health", "Profit": "52621"},
+        { "Prdid" : "ElE05", "Prdnm" : "Steel", "Profit": "245000"}
+    ]
+}

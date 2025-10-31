@@ -1,0 +1,250 @@
+<mvc:View controllerName="code.cl3.day7ui501.controller.Day7_UI501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:m="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    >
+
+    <Page id="page" title="{i18n>title}">
+    <Panel>
+    
+            <m:Table rows="{/gsberSet}"
+				selectionMode="Single"
+                visibleRowCount="6" >
+
+                <m:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title1" text="GsberSet"/>
+					</OverflowToolbar>
+				</m:extension>
+                        <m:columns>
+                        <m:Column width="11rem">
+						<Label text="Business text" />
+						<m:template>
+							<Text text="{Gsber}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Biz Area name" />
+						<m:template>
+							<Text text="{Gtext}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Product order"/>
+						<m:template>
+							<Text text="{Anfnr}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="Customer id"/>
+						<m:template>
+							<Text text="{Kunnr}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+                
+                </m:columns>
+            </m:Table>
+    </Panel>
+
+    <Panel >
+        
+            <HBox >
+                <viz:VizFrame id="idVizFrame" 
+                    height='30rem' 
+                    width="30rem" 
+                    vizType='donut'
+                    vizProperties="{
+                    'title': {'text':'AIR Price', 'visible':true}}"                             
+                    >
+
+                    <!-- dataset: 차트에 표시할 데이터 집합 정의 -->
+                    <viz:dataset>
+                    <!-- FlattenedDataset: 단순한 구조의 데이터셋 (행렬 형태) -->
+                        <viz.data:FlattenedDataset data="{Chart>/ChartSet}">
+                    <!-- data="{Chart>/ChartSet}" :'Chart'라는 모델의 '/ChartSet' 경로 데이터를 바인딩 -->
+
+                    <!-- dimensions: 차트의 분류(차원) 데이터 정의 -->
+                            <viz.data:dimensions>
+                    <!-- DimensionDefinition: 차트의 구분 기준 (예: 항공사 이름), 데이터 경로 -->
+                                <viz.data:DimensionDefinition name="Airline Name"
+                                    value="{Carried}" />
+                            </viz.data:dimensions>
+
+                    <!-- measures: 차트의 수치(측정값) 데이터 정의 -->
+                            <viz.data:measures>
+                    <!-- MeasureDefinition: 각 차원의 값에 해당하는 수치와 데이터 경로 -->
+                                <viz.data:MeasureDefinition name="Price"
+                                    value="{Price}" />
+                            </viz.data:measures>
+                            
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    
+                    <!-- feeds: 데이터셋의 dimension과 measure를 차트의 시각적 속성(색상, 크기 등)에 매핑 -->
+                    <viz:feeds>
+
+                    <!-- uid="size": 도넛의 크기 비율을 결정하는 측정값(Measure) -->
+                            <viz.feeds:FeedItem uid="size" type="Measure"
+                                values="Price" />
+                     <!-- uid="color": 각 항공사별로 색을 다르게 표현할 차원(Dimension) -->
+                            <viz.feeds:FeedItem uid="color" type="Dimension"
+                                values="Airline Name" />
+                    </viz:feeds>
+
+                    <!-- dependents: 차트에 종속된 부가 기능을 정의 -->
+                    <viz:dependents>
+                    <!-- Popover: 마우스 오버 시 Tooltip 형태로 세부 정보 표시 -->
+                        <viz:Popover id="idPopOver"></viz:Popover>
+                    </viz:dependents>
+                </viz:VizFrame>
+
+    <Panel>
+        <VBox >
+                 <viz:VizFrame id="idVizFrame1" 
+                    uiConfig="{applicationSet:'fiori'}"
+                    height='30rem' 
+                    width="30rem" 
+                    vizType='radar'
+                    vizProperties="{
+                    'title': {'text':'AIR Price', 'visible':true}}"
+                    >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{Chart>/ChartSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Airline Name"
+                                value="{Carried}" />
+                        </viz.data:dimensions>
+
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Price"
+                                value="{Price}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                     <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Price" />
+
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Airline Name" />
+                     </viz:feeds>
+
+                <viz:dependents>
+                    <viz:Popover id="idPopOver1"></viz:Popover>
+                </viz:dependents>
+                  
+                </viz:VizFrame>
+        
+        </VBox>
+    </Panel>   
+        </HBox>
+
+    <Panel >
+                    <HBox >
+                   <viz:VizFrame id="idVizFrame2" 
+                     height='30rem' 
+                     width="30rem" 
+                     vizType='bar'
+                     vizProperties="{
+                    'title': {'text':'Profit by Product', 'visible':true}}"
+                >
+                <viz:dataset>
+
+                    <viz.data:FlattenedDataset data="{Profit>/ProfitSet}">
+
+                        <viz.data:dimensions>
+
+                            <viz.data:DimensionDefinition name="Product Name"
+                                value="{Prdnm}" />
+
+                            <viz.data:DimensionDefinition name="Product ID"
+                                value="{Prdid}" />
+
+                        </viz.data:dimensions>
+
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Profit"
+                                value="{Profit}" />
+                        </viz.data:measures>
+
+                    </viz.data:FlattenedDataset>
+
+
+                </viz:dataset>
+
+                <viz:feeds>
+                
+                    <viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis" type="Measure"
+                        values="Profit" />
+
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Product ID" />
+
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Product Name" />
+
+                </viz:feeds>
+
+                <viz:dependents>
+                    <viz:Popover id="idPopOver2"></viz:Popover>
+                </viz:dependents>
+
+               </viz:VizFrame>
+                    
+
+                 <viz:VizFrame id="idVizFrame3" 
+                height='30rem' 
+                width="30rem" 
+                vizType='column'
+                vizProperties="{
+                    'title': {'text':'Profit by Product', 'visible':true}}"
+                >
+                <viz:dataset>
+                  <viz.data:FlattenedDataset data="{Profit>/ProfitSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Product Name"
+                                value="{Prdnm}" />
+                            <viz.data:DimensionDefinition name="Product ID"
+                                value="{Prdid}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Profit"
+                                value="{Profit}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                     <viz.feeds:FeedItem id='valueAxisFeed3' uid="valueAxis" type="Measure"
+                        values="Profit" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Product ID" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Product Name" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver3"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+                    </HBox>
+                
+                </Panel>
+        
+      
+
+    </Panel>
+
+
+     
+    </Page>
+</mvc:View>
+

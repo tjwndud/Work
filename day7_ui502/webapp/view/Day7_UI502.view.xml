@@ -1,0 +1,44 @@
+<mvc:View controllerName="code.cl3.day7ui502.controller.Day7_UI502"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+  <VBox class="sapUiSmallMargin" alignItems="Center">
+                
+               
+                <Input id="display" width="200px" editable="false" value="{/displayValue}" textAlign="Right"/>
+
+                    <HBox >
+                
+                    <Button text="7" press=".onNumberPress"/>
+                    <Button text="8" press=".onNumberPress"/>
+                    <Button text="9" press=".onNumberPress"/>
+                    <Button text="/" press=".onOperatorPress"/>
+                    </HBox>
+
+                    <HBox >
+                    <Button text="4" press=".onNumberPress"/>
+                    <Button text="5" press=".onNumberPress"/>
+                    <Button text="6" press=".onNumberPress"/>
+                    <Button text="*" press=".onOperatorPress"/>
+                    </HBox>
+
+                    <HBox >
+                    <Button text="1" press=".onNumberPress"/>
+                    <Button text="2" press=".onNumberPress"/>
+                    <Button text="3" press=".onNumberPress"/>
+                    <Button text="-" press=".onOperatorPress"/>
+                    </HBox>
+
+                    <HBox >
+                    <Button text="0" press=".onNumberPress"/>
+                    <Button text="C" press=".onClear"/>
+                    <Button text="=" press=".onEqualPress"/>
+                    <Button text="+" press=".onOperatorPress"/>
+                    </HBox>
+
+               
+
+            </VBox>
+
+    </Page>
+</mvc:View>

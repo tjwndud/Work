@@ -1,0 +1,44 @@
+<mvc:View controllerName="code.cl3.day7ui503.controller.Day7_UI503"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    
+    
+            
+                   <Panel headerText="Calculator" class="sapUiResponsiveMargin" width="14rem">
+                 <VBox >
+                <Input id="input" width="12rem" editable="false"/>
+                  <HBox >
+                    <Button id="7" text="7" press="setNumber('7')" width="3rem"/>
+                    <Button id="8" text="8" press="setNumber('8')" width="3rem"/>
+                    <Button id="9" text="9" press="setNumber('9')" width="3rem"/>
+                    <Button id="div" text="/" press="setNumber('/')" width="3rem" type="Accept"/>
+                </HBox>
+                <HBox >
+                    <Button id="4" text="4" press="setNumber('4')" width="3rem"/>
+                    <Button id="5" text="5" press="setNumber('5')" width="3rem"/>
+                    <Button id="6" text="6" press="setNumber('6')" width="3rem"/>
+                    <Button id="x" text="x" press="setNumber('*')" width="3rem" type="Attention"/>
+                </HBox>
+                <HBox >
+                    <Button id="1" text="1" press="setNumber('1')" width="3rem"/>
+                    <Button id="2" text="2" press="setNumber('2')" width="3rem"/>
+                    <Button id="3" text="3" press="setNumber('3')" width="3rem"/>
+                    <Button id="-" text="-" press="setNumber('-')" width="3rem" type="Emphasized"/>
+                </HBox>
+                <HBox >
+                    <Button id="ok"  text="="   press="setNumber('eq')" width="3rem" type="Unstyled"/>
+                    <Button id="clr" text="CLR" press="setNumber('')"   width="3rem" type="Unstyled"/>
+                    <Button id="zero" text="0"  press="setNumber('0')"  width="3rem"/>
+                    <Button id="plus" text="+" press="setNumber('+')" width="3rem" type="Accept"/>
+                </HBox>
+                
+            </VBox>
+        </Panel>
+
+               
+
+            
+    
+    </Page>
+</mvc:View>
