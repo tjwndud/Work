@@ -1,0 +1,47 @@
+<mvc:View controllerName="code.cl3.day8ui502.controller.DAY8_UI502"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:m="sap.suite.ui.microchart"
+    xmlns:layout="sap.ui.layout">
+    
+    <Page id="page" title="{i18n>title}">
+
+    <HBox justifyContent="SpaceAround" class="sapUiLargeMarginTop">
+        <FlexBox width="30rem" height="15rem"  >
+           
+            <m:InteractiveDonutChart segments ="{/ProfitSet}" displayedSegments="10">
+				<m:segments>
+					<m:InteractiveDonutChartSegment label="{Prdnm}" value="{=parseFloat(${Profit})}" displayedValue="{Profit}%"/>
+                    <!-- value="{=parseFloat(${Profit})}" 받아오는 값을 형변환해주는 방법 -->
+					<!-- <m:InteractiveDonutChartSegment label="Cookue" value="25" displayedValue="25.0%"/> -->
+					<!-- <m:InteractiveDonutChartSegment label="Bread" value="35" displayedValue="35.0%"/> -->
+				</m:segments>
+			</m:InteractiveDonutChart>
+             </FlexBox>
+
+         <FlexBox width="30rem" height="15rem"  >
+            <items>
+				<m:InteractiveLineChart points="{/ProfitSet}">
+					<m:points>
+						<m:InteractiveLineChartPoint value="{=parseFloat(${Profit})}" label="{Prdnm}" secondaryLabel="{Prdid}"/>
+					
+					</m:points>
+				</m:InteractiveLineChart>
+			</items>
+            
+          </FlexBox>
+          </HBox>
+          <HBox justifyContent="Center" class="sapUiLargeMarginTop">
+                    <FlexBox width="20rem" height="10rem" alignItems="Center" class="sapUiSmallMargin">
+			<items>
+				<m:InteractiveBarChart labelWidth="25%" bars="{/ProfitSet}" displayedBars="10">
+					<m:bars>
+						<m:InteractiveBarChartBar label="{Prdnm}" value="{=parseFloat(${Profit})}"/>
+					
+					</m:bars>
+				</m:InteractiveBarChart>
+			</items>
+		</FlexBox>
+          </HBox>
+    </Page>
+</mvc:View> 

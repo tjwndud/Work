@@ -1,0 +1,20 @@
+{
+    "TeamSet" : [ 
+        {  "Team" : "LG트윈스", "Year" : "1990", "Area" : "서울", "Win" : "3회"},
+        {  "Team" : "kT 위즈" , "Year" : "2013", "Area" : "수원", "Win" : "1회"},
+        {  "Team" : "SSG 렌더스", "Year" : "2021", "Area" : "인천", "Win" : "5회"},
+        {  "Team" : "NC 다이노소어", "Year" : "2011", "Area" : "창원", "Win" : "1회"},
+        {  "Team" : "KIA 타이거즈", "Year" : "2001", "Area" : "경주", "Win" : "11회"},
+        {  "Team" : "삼성 라이온즈", "Year" : "1982", "Area" : "대구", "Win" : "8회"}
+     ] ,
+
+     "OldSet" : [
+        { "City" : "서울", "Ratio" : "18.5"},
+        { "City" : "인천", "Ratio" : "16.6"},
+        { "City" : "강원", "Ratio" : "24.0"},
+        { "City" : "광주", "Ratio" : "16.5"},
+        { "City" : "부산", "Ratio" : "22.6"}
+     ]
+
+    
+}

@@ -1,0 +1,139 @@
+<mvc:View controllerName="code.cl3.day8ui501.controller.Day8_UI501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:m="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    >
+    <Page id="page" title="{i18n>title}">
+			<Panel>
+				<HBox>
+                     <!-- visibleRowCount는 설정한 만큼의 테이블을 보여준다 -->
+                 <m:Table rows="{/TeamSet}"
+				selectionMode="Single"
+                visibleRowCount="7"
+                >
+                <m:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title1" text="Baseball Team"/>
+					</OverflowToolbar>
+				</m:extension>
+                <m:columns>
+                        <m:Column width="11rem">
+						<Label text="팀명" />
+						<m:template>
+							<Text text="{Team}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="창단연도" />
+						<m:template>
+							<Text text="{Year}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="연고지"/>
+						<m:template>
+							<Text text="{Area}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+
+                        <m:Column width="11rem">
+						<Label text="우승횟수"/>
+						<m:template>
+							<Text text="{Win}" wrapping="false" />
+						</m:template>
+					    </m:Column>
+                </m:columns>
+                </m:Table>
+
+
+            </HBox>
+			</Panel>
+
+			<Panel >
+				<VBox >
+				<HBox justifyContent="SpaceAround">
+				<!-- justifyContent="SpaceAround" 두개의 차트의 간격을 주는 속성 -->
+				<viz:VizFrame id="idVizFrame" 
+                height='30rem' width="30rem" vizType='bar'
+				  vizProperties="{
+                    'title': {'text':'OldSet', 'visible':true}}"
+					
+					>
+					
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{old>/OldSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="City"
+                                value="{City}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                           
+                            <viz.data:MeasureDefinition name="Ratio"
+                                value="{Ratio}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Ratio" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="City" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+			
+				 <viz:VizFrame id="idVizFrame1" 
+                    uiConfig="{applicationSet:'fiori'}"
+                    height='30rem' 
+                    width="30rem" 
+                    vizType='radar'
+		            vizProperties="{
+                    'title': {'text':'OldSet', 'visible':true}}"
+					class = "sapUiResponsiveMargin"
+                    >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{old>/OldSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="City"
+                                value="{City}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                           
+                            <viz.data:MeasureDefinition name="Ratio"
+                                value="{Ratio}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed1' uid="valueAxis" type="Measure"
+                        values="Ratio" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="City" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver1"></viz:Popover>
+                </viz:dependents>
+                  
+                </viz:VizFrame>
+			 		</HBox>
+				</VBox>
+			</Panel>
+			<Panel >
+		
+			</Panel>
+
+			
+        
+    </Page>
+</mvc:View>
