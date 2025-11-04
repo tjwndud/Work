@@ -1,0 +1,10 @@
+{
+    "airSet":
+    [
+      {"Carrid": "AA", "Carrname": "America Air", "Price": "452.05", "Curkey": "USD"},
+      {"Carrid": "LH", "Carrname": "Lufthansa", "Price": "514.52", "Curkey": "EUR"},
+      {"Carrid": "KO", "Carrname": "대한항공",  "Price": "250000", "Curkey": "KRW"},
+      {"Carrid": "DL", "Carrname": "Delta Air", "Price": "526.21", "Curkey": "USD"},
+      {"Carrid": "AS", "Carrname": "아시아나항공", "Price": "245000", "Curkey": "KRW"}
+    ]
+}

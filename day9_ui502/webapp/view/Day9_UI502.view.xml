@@ -1,0 +1,88 @@
+<mvc:View controllerName="code.cl3.day9ui502.controller.Day9_UI502"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.suite.ui.microchart"
+	xmlns:layout="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    >
+    <Page id="page" title="{i18n>title}">
+     <!-- 필터링 테이블 실습 -->
+        	<content>
+        <HBox justifyContent="Start" width="auto" class="sapUiResponsiveMargin"  >
+          
+			<t:Table
+				id="table"
+				selectionMode="Single"
+				rows="{Air>/airSet}"
+				filter="filterPrice"
+				ariaLabelledBy="title"
+                visibleRowCount = "7"
+                
+                
+                >
+                
+				<t:extension>
+					<OverflowToolbar style="Clear" width="auto">
+						<Title id="title" text="Airlines"/>
+						<ToolbarSpacer/>
+					
+						<ToolbarSeparator/>
+                        <Button id="btn1" text="Search" icon = "sap-icon://search" press="onWord()"/>
+                        <Input id="id" placeholder="Code" width="10rem" />
+                        <Input id="name" placeholder="Name" width="10rem" />
+ 						<SearchField
+							placeholder="Filter"
+							search="onSearch"
+							width="auto"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns >
+                
+					<t:Column
+						width="auto"
+						filterProperty="Name">
+						<Label text="Airline" />
+						<t:template>
+							<Text text="{Air>Carrid}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Airline Name">
+						<Label text="Airline name" />
+						<t:template>
+							<Text text="{Air>Carrname}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Price">
+						<Label text="Price" />
+						<t:template>
+							<Text text="{Air>Price}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Currency">
+						<Label text="Currency" />
+						<t:template>
+							<Text text="{Air>Curkey}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					
+				</t:columns>
+				<t:footer>
+					<OverflowToolbar id="infobar"></OverflowToolbar>
+				</t:footer>
+			</t:Table>
+            
+        </HBox>
+        </content>
+
+    </Page>
+</mvc:View>
