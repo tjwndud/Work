@@ -1,0 +1,64 @@
+<mvc:View controllerName="code.cl3.day10ui501.controller.Day10_UI501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.suite.ui.microchart"
+	xmlns:layout="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    >
+    <Page id="page" title="{i18n>title}">
+    	<content>
+         <HBox justifyContent="Start" width="auto" class="sapUiResponsiveMargin"  >
+			<t:Table
+                id = "table"
+				rows="{/kostlSet}"
+				selectionMode="Single"
+				paste="onPaste"
+                visibleRowCount = "7"
+				ariaLabelledBy="title">
+				
+					<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+						<ToolbarSpacer/>
+					
+						<ToolbarSeparator/>
+                         <Button id="btn1" text="Search" icon = "sap-icon://search" press="onCheck()"/>
+                        <Input id="id" placeholder="KOSTL" width="10rem" />
+                        <Input id="name" placeholder="KTEXT" width="10rem" />   
+						<SearchField
+							placeholder="Filter"
+							value="{ui>/globalFilter}"
+							search="onSearch"
+							width="15rem"/>
+					</OverflowToolbar>
+				</t:extension>
+				
+				
+				<t:columns>
+					<t:Column width="auto">
+						<Label text="Center Code" />
+						<t:template>
+							<Text text="{kostl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Center name" />
+						<t:template>
+							<Text text="{ktext}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Center Number" />
+						<t:template>
+							<Text text="{kstar}" wrapping="false" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+            </HBox>
+		</content>
+    </Page>
+</mvc:View>

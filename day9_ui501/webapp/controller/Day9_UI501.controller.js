@@ -44,16 +44,22 @@ sap.ui.define([
 
             
             aFilter.push(new Filter("Carrname", FilterOperator.Contains, vCond));
-            // aFilter.push(new Filter("Carrid", FilterOperator.EQ, "AA"));
+            // aFilter.push(new Filter("Carrid", FilterOperator.EQ, "AA")); 추가조건 aFilter를 배열로 선언했기때문에 조건 추가 가능
+            // 생성자는 max 4개의 인자를 받을 수 있고 위의 코드에서는 3개의 인자를 받았다
+            //1.검색하고자하는 대상 필드
+            //2.FilterOperator를 이용한 연산자.
+            //3.query해서 받아온 검색어
             
                 
             }
 
             //Filter binding 테이블 바인딩 필터
             var oTable = this.getView().byId("table");
-            const oBinding = oTable.getBinding("rows");
+            var oBinding = oTable.getBinding("rows");
             oBinding.filter(aFilter);
 
+            //this.getView().byId("airline").getBinding("rows").filter(aFilter); 바인딩 과정을 한줄로 표현한 코드
+            
         },
         onWord() {
             
