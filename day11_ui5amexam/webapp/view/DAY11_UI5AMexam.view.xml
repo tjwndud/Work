@@ -1,0 +1,55 @@
+<mvc:View xmlns:launchpad="sap.ushell.ui.launchpad" controllerName="code.cl3.day11ui5amexam.controller.DAY11_UI5AMexam"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+    <HBox >
+        <Panel class= "sapUiResponsiveMargin" headerText="1번 문제" width="auto">    
+            <HBox >
+            <Input value="Fiori 입력창" description="피오리 입력창 입니다." width="20rem" editable="false"/>
+            </HBox>
+            <HBox >
+            <Input value="RTX1253" description="30Ton" width="20rem" editable="false"/>
+            </HBox>
+        </Panel>
+    </HBox>
+
+    <HBox >
+        <Panel  class= "sapUiResponsiveMargin" headerText="2번 문제" width="auto">
+            <Button text="for" press = "onFor()"/>
+            <Button text="while" press = "onWhile()"/>
+            <Button text="for + while" press = "onFW()"/>
+        
+        </Panel>
+    </HBox>
+
+     <HBox >
+        <Panel  class= "sapUiResponsiveMargin" headerText="3번 문제" width="auto">
+            <Label text="단 입력" vAlign="Middle"/>
+            <Input id = "dan" width="10rem"/> 
+            <HBox >
+            <Button text="Click" press = "onClick()"/>
+            </HBox>
+        </Panel>
+    </HBox>
+
+     <HBox >
+        <Panel  class= "sapUiResponsiveMargin" headerText="4번 문제" width="auto">
+
+            <Button text="Click" press = "onNum()"/>
+            
+        </Panel>
+    </HBox>
+
+    <HBox>
+        <Panel  class= "sapUiResponsiveMargin" headerText="5번 문제" width="20rem">
+
+            <Button text="Click" press = "onSum()" class="sapUiSmallMarginBegin"/>
+            <Label text="값: " vAlign="Middle" class="sapUiSmallMarginBegin" />
+            <Text id= "rlt" class="sapUiSmallMarginBegin" />
+            
+        </Panel>
+    </HBox>
+
+    </Page>
+</mvc:View>

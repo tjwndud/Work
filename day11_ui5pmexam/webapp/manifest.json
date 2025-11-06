@@ -1,0 +1,119 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "code.cl3.day11ui5pmexam",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.19.1",
+      "toolsId": "9ae89814-ea49-418d-a382-9a9047e0023e"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.120.38",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "code.cl3.day11ui5pmexam.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "code.cl3.day11ui5pmexam.view",
+        "async": true,
+        "viewPath": "code.cl3.day11ui5pmexam.view"
+      },
+      "routes": [
+        {
+          "name": "RouteDay11_UI5PmExam",
+          "pattern": ":?query:",
+          "target": [
+            "TargetDay11_UI5PmExam"
+          ]
+        },
+        {
+          "name": "RouteDay11_UI5PmExamSecond",
+          "pattern": "Second",
+          "target": [
+            "TargetDay11_UI5PmExamSecond"
+          ]
+        },
+        {
+          "name": "RouteDay11_UI5PmExamThird",
+          "pattern": "Third",
+          "target": [
+            "TargetDay11_UI5PmExamThird"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetDay11_UI5PmExam": {
+          "id": "FirstId",
+          "name": "Day11_UI5PmExam"
+        },
+        "TargetDay11_UI5PmExamSecond": {
+          "id": "SecondId",
+          "name": "Day11_UI5PmExamSecond"
+        },"TargetDay11_UI5PmExamThird": {
+          "id": "ThirdId",
+          "name": "Day11_UI5PmExamThird"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "code.cl3.day11ui5pmexam.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

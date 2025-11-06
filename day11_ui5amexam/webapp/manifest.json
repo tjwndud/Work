@@ -1,0 +1,98 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "code.cl3.day11ui5amexam",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.19.1",
+      "toolsId": "32aa66d9-45bf-4502-acb5-943fc3823185"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.120.38",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "code.cl3.day11ui5amexam.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "code.cl3.day11ui5amexam.view",
+        "async": true,
+        "viewPath": "code.cl3.day11ui5amexam.view"
+      },
+      "routes": [
+        {
+          "name": "RouteDAY11_UI5AMexam",
+          "pattern": ":?query:",
+          "target": [
+            "TargetDAY11_UI5AMexam"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetDAY11_UI5AMexam": {
+          "id": "DAY11_UI5AMexam",
+          "name": "DAY11_UI5AMexam"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "code.cl3.day11ui5amexam.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

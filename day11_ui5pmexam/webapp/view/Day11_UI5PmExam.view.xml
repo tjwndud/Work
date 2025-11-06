@@ -1,0 +1,397 @@
+<mvc:View controllerName="code.cl3.day11ui5pmexam.controller.Day11_UI5PmExam"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.suite.ui.microchart"
+	xmlns:layout="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    >
+    <Page id="page" title="{i18n>title}">
+	<!-- 6번 문제************************************************************************************************* -->
+     <HBox >
+        <Panel class= "sapUiResponsiveMargin" headerText="6번 문제" width="auto">    
+            
+            <Button text="Click" press = "onClick"/>
+            
+        </Panel>
+    </HBox>
+
+    <content>
+        <HBox justifyContent="Start" width="auto" class="sapUiResponsiveMargin"  >
+          
+			<t:Table
+				id="table"
+				selectionMode="Single"
+				rows="{/GridSet}"
+				filter="filterPrice"
+				ariaLabelledBy="title"
+                visibleRowCount = "7"
+                
+                
+                >
+    <!-- 7번 문제*********************************************************************************************** -->
+				<t:extension>
+					<OverflowToolbar style="Clear" width="auto">
+						<Title id="title" text="7번 문제"/>
+						<ToolbarSpacer/>
+					
+						<ToolbarSeparator/>
+ 						<SearchField
+							placeholder="Filter"
+							search="onSearch"
+							width="auto"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns >
+                
+					<t:Column
+						width="auto"
+						filterProperty="Company Code">
+						<Label text="Company Code" />
+						<t:template>
+							<Text text="{Bukrs}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Fiscal year">
+						<Label text="Fiscal year" />
+						<t:template>
+							<Text text="{Gjahr}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Company name">
+						<Label text="Company name" />
+						<t:template>
+							<Text text="{Bktxt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Asset total">
+						<Label text="Asset total" />
+						<t:template>
+							<Text text="{Anln1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					
+				</t:columns>
+				<t:footer>
+					<OverflowToolbar id="infobar"></OverflowToolbar>
+				</t:footer>
+			</t:Table>
+            
+        </HBox>
+        </content>
+
+     <!-- 8번 문제************************************************************************************************* -->  
+        <content> 
+        <HBox justifyContent="Start" width="auto" class="sapUiResponsiveMargin"  >
+          
+			<t:Table
+				id="table2"
+				selectionMode="Single"
+				rows="{com>/DataSet}"
+				filter="filterPrice"
+				ariaLabelledBy="title"
+                visibleRowCount = "7"
+                
+                
+                >
+                
+				<t:extension>
+					<OverflowToolbar style="Clear" width="auto">
+						<Title id="title2" text="8번 문제"/>
+						<ToolbarSpacer/>
+					
+						<ToolbarSeparator/> 
+ 						<SearchField
+							placeholder="Filter"
+							search="onSearch2"
+							width="auto"/>
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns >
+                
+					<t:Column
+						width="auto"
+						filterProperty="Year">
+						<Label text="Year" />
+						<t:template>
+							<Text text="{com>Year}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Company name">
+						<Label text="Company name" />
+						<t:template>
+							<Text text="{com>Comp}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Asset">
+						<Label text="Asset" />
+						<t:template>
+							<Text text="{com>Asset}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Gubun">
+						<Label text="Gubun" />
+						<t:template>
+							<Text text="{com>Gubun}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Total">
+						<Label text="Total" />
+						<t:template>
+							<Text text="{com>Total}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="List">
+						<Label text="List" />
+						<t:template>
+							<Text text="{com>List}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Rate">
+						<Label text="Rate" />
+						<t:template>
+							<Text text="{com>Rate}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column
+						width="auto"
+						filterProperty="Increase">
+						<Label text="Increase" />
+						<t:template>
+							<Text text="{com>Increase}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					
+				</t:columns>
+				<t:footer>
+					<OverflowToolbar id="infobar2"></OverflowToolbar>
+				</t:footer>
+			</t:Table>
+            
+        </HBox>
+        </content>
+
+    <!-- 9번 문제************************************************************************************************* -->
+                <!-- viz차트간의 간격을 띄워주는 속성 -->
+            <HBox justifyContent="SpaceAround">
+         
+                <viz:VizFrame id="idVizFrame" 
+                    height='20rem' 
+                    width="20rem" 
+                    vizType='donut'
+                    vizProperties="{
+                    'title': {'text':'문제9-1', 'visible':true}}"                             
+                    >
+
+                    <!-- dataset: 차트에 표시할 데이터 집합 정의 -->
+                    <viz:dataset>
+                    <!-- FlattenedDataset: 단순한 구조의 데이터셋 (행렬 형태) -->
+                        <viz.data:FlattenedDataset data="{base>/VizSet}">
+                    <!-- data="{Chart>/ChartSet}" :'Chart'라는 모델의 '/ChartSet' 경로 데이터를 바인딩 -->
+
+                    <!-- dimensions: 차트의 분류(차원) 데이터 정의 -->
+                            <viz.data:dimensions>
+                    <!-- DimensionDefinition: 차트의 구분 기준 (예: 항공사 이름), 데이터 경로 -->
+                                <viz.data:DimensionDefinition name="Player"
+                                    value="{base>Player}" />
+                            </viz.data:dimensions>
+
+                    <!-- measures: 차트의 수치(측정값) 데이터 정의 -->
+                            <viz.data:measures>
+                    <!-- MeasureDefinition: 각 차원의 값에 해당하는 수치와 데이터 경로 -->
+                                <viz.data:MeasureDefinition name="Assist"
+                                    value="{base>Assist}" />
+                            </viz.data:measures>
+                            
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    
+                    <!-- feeds: 데이터셋의 dimension과 measure를 차트의 시각적 속성(색상, 크기 등)에 매핑 -->
+                    <viz:feeds>
+
+                    <!-- uid="size": 도넛의 크기 비율을 결정하는 측정값(Measure) -->
+                            <viz.feeds:FeedItem uid="size" type="Measure"
+                                values="Assist" />
+                     <!-- uid="color": 각 항공사별로 색을 다르게 표현할 차원(Dimension) -->
+                            <viz.feeds:FeedItem uid="color" type="Dimension"
+                                values="Player"/>
+                    </viz:feeds>
+
+                    <!-- dependents: 차트에 종속된 부가 기능을 정의 -->
+                    <viz:dependents>
+                    <!-- Popover: 마우스 오버 시 Tooltip 형태로 세부 정보 표시 -->
+                        <viz:Popover id="idPopOver"></viz:Popover>
+                    </viz:dependents>
+                </viz:VizFrame>
+
+    
+        <VBox >
+                 <viz:VizFrame id="idVizFrame1" 
+                    uiConfig="{applicationSet:'fiori'}"
+                    height='20rem' 
+                    width="20rem" 
+                    vizType='radar'
+                    vizProperties="{
+                    'title': {'text':'문제9-2', 'visible':true}}"
+                    >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{base>/VizSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Player"
+                                value="{base>Player}" />
+                        </viz.data:dimensions>
+
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Assist"
+                                value="{base>Assist}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                     <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Assist" />
+
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Player" />
+                     </viz:feeds>
+
+                <viz:dependents>
+                    <viz:Popover id="idPopOver1"></viz:Popover>
+                </viz:dependents>
+                  
+                </viz:VizFrame>
+        
+        </VBox>
+    
+        </HBox>
+
+	<!-- 10번 문제************************************************************************************************* -->
+         <HBox justifyContent="SpaceAround">
+        
+        <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="문제10-1"/>
+			</OverflowToolbar>
+		</headerToolbar>
+        <HBox >
+            	  <FlexBox width="18rem" height="10rem" alignItems="Center" class="sapUiSmallMargin">
+			<items>
+				<m:InteractiveBarChart selectionChanged="onSelectionChanged"  press="press"
+                 labelWidth="10%" bars="{base>/MicorSet}" displayedBars="10">
+					<m:bars>
+						<m:InteractiveBarChartBar label="{base>Team}" value="{=parseFloat(${base>Hit})}"/>
+					
+					</m:bars>
+				</m:InteractiveBarChart>
+			</items>
+		</FlexBox>
+         </HBox >
+        </Panel>
+        
+
+
+
+         
+         <!-- InteractiveLineChart 실습 -->
+        <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="문제10-2"/>
+			</OverflowToolbar>
+		</headerToolbar>
+        <HBox >
+        <FlexBox width="18rem" height="10rem" alignItems="Center" class="sapUiSmallMargin">
+			<items>
+				<m:InteractiveLineChart selectionChanged="selectionChanged" press="press" precedingPoint="15"
+									  points="{base>/MicorSet}">
+					<m:points>
+						<m:InteractiveLineChartPoint value="{=parseFloat(${base>Hit})}" label="{base>Team}" />
+						
+					</m:points>
+				</m:InteractiveLineChart>
+			</items>
+		</FlexBox>
+        </HBox>
+        </Panel>
+        </HBox> 
+
+	<!-- 11번 문제************************************************************************************************* -->	
+        <HBox justifyContent="Center">
+           <Panel headerText="문제11" class="sapUiResponsiveMargin" width="14rem">
+                 <VBox >
+                <Input id="input" width="12rem" editable="false"/>
+                  <HBox >
+                    <Button id="7" text="7" press="setNumber('7')" width="3rem"/>
+                    <Button id="8" text="8" press="setNumber('8')" width="3rem"/>
+                    <Button id="9" text="9" press="setNumber('9')" width="3rem"/>
+                    <Button id="div" text="/" press="setNumber('/')" width="3rem" type="Accept"/>
+                </HBox>
+                <HBox >
+                    <Button id="4" text="4" press="setNumber('4')" width="3rem"/>
+                    <Button id="5" text="5" press="setNumber('5')" width="3rem"/>
+                    <Button id="6" text="6" press="setNumber('6')" width="3rem"/>
+                    <Button id="x" text="x" press="setNumber('*')" width="3rem" type="Attention"/>
+                </HBox>
+                <HBox >
+                    <Button id="1" text="1" press="setNumber('1')" width="3rem"/>
+                    <Button id="2" text="2" press="setNumber('2')" width="3rem"/>
+                    <Button id="3" text="3" press="setNumber('3')" width="3rem"/>
+                    <Button id="-" text="-" press="setNumber('-')" width="3rem" type="Emphasized"/>
+                </HBox>
+                <HBox >
+                    <Button id="ok"  text="="   press="setNumber('eq')" width="3rem" type="Unstyled"/>
+                    <Button id="clr" text="CLR" press="setNumber('')"   width="3rem" type="Unstyled"/>
+                    <Button id="zero" text="0"  press="setNumber('0')"  width="3rem"/>
+                    <Button id="plus" text="+" press="setNumber('+')" width="3rem" type="Accept"/>
+                </HBox>
+                
+            </VBox>
+        </Panel>    
+
+	<!-- 12번 문제************************************************************************************************* -->
+        <Panel class= "sapUiResponsiveMargin" expandable="true" headerText="문제12" width="12rem">
+        <Button text = "Go Second" icon= "sap-icon://cargo-train" press= "goSecond()" />
+         <Button text ="Go Back" icon="sap-icon://cargo-train" press="goBack()" />
+        </Panel>
+
+        
+        </HBox>
+
+        
+       
+
+    </Page>
+</mvc:View>

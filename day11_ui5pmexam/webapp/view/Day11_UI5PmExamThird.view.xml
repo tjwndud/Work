@@ -1,0 +1,28 @@
+<mvc:View controllerName="code.cl3.day11ui5pmexam.controller.Day11_UI5PmExamThird"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:m="sap.suite.ui.microchart"
+	xmlns:layout="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    >
+    <Page id="page3" title="{i18n>title}">
+
+     
+            
+        <Panel class= "sapUiResponsiveMargin" expandable="true" headerText="문제12-2" width="12rem">
+        <Button text = "Go Second" icon= "sap-icon://cargo-train" press= "goSecond()" />
+         <Button text ="Go Back" icon="sap-icon://cargo-train" press="goBack()" />
+        </Panel>
+
+        
+        
+
+        
+       
+
+    </Page>
+</mvc:View>
