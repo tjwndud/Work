@@ -63,7 +63,10 @@ sap.ui.define([
 
             Vdan = this.getView().byId("dan").getValue(); //view에서 id가 "dan"인 input에서 입력된 값을 가져와 vdan에 저장
             
-
+                if (Vdan == '') {
+                    console.log("숫자를 입력하시오");
+                
+                }else{
             console.log(Vdan+"단 Skip"); //입력된 단 스킵한다는 것을 콘솔에 명시
              for( i=2 ; i<=9; i++){ //i는 2부터 9까지 1씩 증가하는 반복문
 
@@ -76,6 +79,7 @@ sap.ui.define([
                     for(j=1; j<=9; j++) {   //스킵된 단수를 제외하고 j를 1씩 증가시키는 반복문을 실행   
                     console.log(i + "*" + j + "=" + i*j);//콘솔에 곱샘을 출력
                  }   
+                }
                 
 
              }

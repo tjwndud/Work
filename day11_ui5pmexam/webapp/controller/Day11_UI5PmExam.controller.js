@@ -94,7 +94,7 @@ sap.ui.define([
             for(var i of this.vArray ){ 
                 console.log("Player:", i.Player,"Team:", i.Team);//vArray의 값을 1개씩 가져와서 i값에 저장
                 console.log("-------------------------------------");
-              
+                
             }
 
         },

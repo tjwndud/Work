@@ -1,0 +1,101 @@
+<mvc:View controllerName="code.cl3.airlinecl3ui503.controller.GWserviceView03"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns="sap.m"
+   	xmlns:c="sap.suite.ui.microchart"
+    
+    >
+    <Page id="page" title="{i18n>title}">
+    
+                <Label text="　"/>
+             <VBox  class="sapUiResponsibleMargin" alignItems="Center">
+             
+            <Panel class="sapUiResponsibleMargin" headerText="Payment" width="auto" >
+               
+                <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='20rem' width="50rem" vizType='bar'
+                vizProperties="{
+                    'title': {'text':'Payments', 'visible':true}}"
+                    >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{/PaymentSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Carrid"
+                                value="{Carrid}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Price"
+                                value="{Price}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Price" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Carrid" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+            </Panel>
+                
+            
+                <Label text="　"/>
+             <Panel class="sapUiResponsibleMargin" headerText="Payment" width="auto">
+                  
+            <viz:VizFrame id="idVizFrame1" uiConfig="{applicationSet:'fiori'}"
+                height='20rem' width="50em" vizType='line' class="sapUiResponsibleMargin"
+                  vizProperties="{
+                    'title': {'text':'Payments', 'visible':true}}"  
+                >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{/PaymentSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Carrid"
+                                value="{Carrid}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Price"
+                                value="{Price}" />
+                            
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed1' uid="valueAxis" type="Measure"
+                        values="Price" />
+                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+                        values="Carrid" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver1"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+            </Panel>
+                  <Label text="　"/>
+             <Panel class="sapUiResponsibleMargin" headerText="Payment" width="auto" >
+            <FlexBox width="48rem" height="20rem" alignItems="Center" class="sapUiSmallMargin">
+			<items>
+				<c:InteractiveLineChart selectionChanged="selectionChanged" press="press" displayedPoints="10" points="{/PaymentSet}">
+					<c:points>
+    						<c:InteractiveLineChartPoint value="{=parseFloat(${Price})}" label="{Carrid}" />
+    					</c:points>
+				</c:InteractiveLineChart>
+			</items>
+		</FlexBox>
+            </Panel>
+            </VBox>
+                  <Label text="　"/>
+            
+            
+            
+      
+    </Page>
+</mvc:View>

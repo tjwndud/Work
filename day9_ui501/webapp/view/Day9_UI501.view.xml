@@ -91,26 +91,11 @@
 				rows="{Air>/airSet}"
 				filter="filterPrice"
 				ariaLabelledBy="title"
-                visibleRowCount = "7"
+                visibleRowCount = "20"
                 
                 
                 >
                 
-				<t:extension>
-					<OverflowToolbar style="Clear" width="auto">
-						<Title id="title" text="Airlines"/>
-						<ToolbarSpacer/>
-					
-						<ToolbarSeparator/>
-                        <Button id="btn1" text="Search" icon = "sap-icon://search" press="onWord()"/>
-                        <Input id="id" placeholder="Code" width="10rem" />
-                        <Input id="name" placeholder="Name" width="10rem" />
- 						<SearchField
-							placeholder="Filter"
-							search="onSearch"
-							width="auto"/>
-					</OverflowToolbar>
-				</t:extension>
 				<t:columns >
                 
 					<t:Column

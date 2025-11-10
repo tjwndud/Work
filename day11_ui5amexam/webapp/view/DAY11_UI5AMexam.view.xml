@@ -15,9 +15,11 @@
     </HBox>
 
     <HBox >
-        <Panel  class= "sapUiResponsiveMargin" headerText="2번 문제" width="auto">
+        <Panel  class= "sapUiResponsiveMargin" headerText="2번 문제" width="auto" >
             <Button text="for" press = "onFor()"/>
+            <Label text= "　"/>
             <Button text="while" press = "onWhile()"/>
+            <Label text= "　"/>
             <Button text="for + while" press = "onFW()"/>
         
         </Panel>
