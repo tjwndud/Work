@@ -1,0 +1,283 @@
+<mvc:View controllerName="code.cl3.airlinecl3ui504.controller.GWserviceView04"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+   	xmlns:d="sap.suite.ui.microchart"
+    >
+    <Page id="page" title="{i18n>title}">
+     <VBox alignItems="Center">
+        <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Gateway service" expandable="true">
+            <t:Table id="airline" rows="{/AirlineSet}"  visibleRowCount = "auto" selectionMode="Single" width="60vw">
+                 <t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+						<ToolbarSeparator/>
+                         <ToolbarSpacer>
+                         </ToolbarSpacer>
+                         <Button text= "Search" press="onSearch()" icon="sap-icon://search"/>
+                        <Input id="CID" placeholder="Airline name" width="auto" class="sapUiSmallMarginEnd"/>
+                        
+                       
+					</OverflowToolbar>
+				</t:extension>
+
+                <t:columns>
+
+					<t:Column width="auto">
+						<Label text="Airline id" />
+						<t:template>
+							<Text text="{Carrid}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Airline name" />
+						<t:template>
+							<Text text="{Carrname}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Airline Code" />
+						<t:template>
+							<Text text="{Currcode}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Airline URL" />
+						<t:template>
+							<Text text="{Url}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                </t:columns>
+                
+                
+                </t:Table>
+        </Panel>
+
+    <VBox class="sapUiSmallMarginTop">
+
+        <Panel class="sapUiResponsibleMargin" headerText="Gateway service" width="60vw" expandable="true">
+            <t:Table  id="airline2" rows="{flight>/ScheduleSet}"  visibleRowCount = "auto" selectionMode="Single" width="60vw" >
+            <t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title2" text="Products"/>
+						<ToolbarSeparator/>
+                         <ToolbarSpacer >
+                         </ToolbarSpacer>
+                          <Button text= "Search" press="onWord()" icon="sap-icon://search"/>
+                         <Input id="CID2" placeholder="Airline" width="auto" />
+                         <Input id="CID3" placeholder="Connection" width="auto" class="sapUiSmallMarginEnd"/> 
+                       
+					</OverflowToolbar>
+				</t:extension>
+
+                <t:columns>
+                    <t:Column width="auto">
+						<Label text="Airline" />
+						    <t:template>
+							    <Text text="{flight>Carrid}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+
+					<t:Column width="auto">
+						<Label text="Counrty Id" />
+						    <t:template>
+							    <Text text="{flight>Connid}"/>
+						    </t:template>
+
+					</t:Column>
+                        <t:Column width="auto">
+						<Label text="Country AirPort" />
+						    <t:template>
+							    <Text text="{flight>Countryfr}"/>
+						    </t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="City from" />
+						    <t:template>
+							    <Text text="{flight>Cityfrom}"/>
+						    </t:template>
+					</t:Column>
+
+                      <t:Column width="auto">
+						<Label text="Country to" />
+						    <t:template>
+							    <Text text="{flight>Countryto}"/>
+						    </t:template>
+					</t:Column>
+
+                      <t:Column width="auto">
+						<Label text="City to" />
+						    <t:template>
+							    <Text text="{flight>Cityto}"/>
+						    </t:template>
+					</t:Column>
+
+                      <t:Column width="auto">
+						<Label text="FlyTime" />
+						    <t:template>
+							    <Text text="{flight>Fltime}"/>
+						    </t:template>
+					</t:Column>
+				</t:columns>
+             </t:Table>
+        </Panel>
+    </VBox>
+    
+    <VBox  class="sapUiResponsibleMargin" alignItems="Center">
+             
+            <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Payments chart" expandable="true">
+               
+               
+                <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='20rem' width="50rem" vizType='bar'
+                vizProperties="{
+                    'title': {'text':'Payments', 'visible':true}}"
+                    >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{Payments>/PaymentSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Carrid"
+                                value="{Payments>Carrid}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Price"
+                                value="{Payments>Price}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Price" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="Carrid" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+              
+               
+             <viz:VizFrame id="idVizFrame1" uiConfig="{applicationSet:'fiori'}"
+                height='20rem' width="50em" vizType='line' class="sapUiSmallMarginTop"
+                  vizProperties="{
+                    'title': {'text':'Payments', 'visible':true}}"  
+                                    >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{Payments>/PaymentSet}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Carrid"
+                                value="{Payments>Carrid}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Price"
+                                value="{Payments>Price}" />
+                            
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed1' uid="valueAxis" type="Measure"
+                        values="Price" />
+                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+                        values="Carrid" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver1"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+            
+            </Panel>
+
+               
+         
+        </VBox>
+
+        <VBox >
+            <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Payments Table" expandable="true">
+                <t:Table id="airline3" rows="{Payments>/FlightSet}"  visibleRowCount = "auto" selectionMode="Single" width="60vw" >
+                    <t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title3" text="Products"/>
+						<ToolbarSeparator/>
+                         <ToolbarSpacer >
+                         </ToolbarSpacer>
+                          <Button text= "Search" press="onClick()" icon="sap-icon://search"/>
+                      
+                        <Input id="CID4" placeholder="Airline" width="auto" class="sapUiSmallMarginEnd"/> 
+                        <Input id="CID5" placeholder="Connection" width="auto" class="sapUiSmallMarginEnd"/>
+                       
+					</OverflowToolbar>
+				</t:extension>
+
+                <t:columns>
+                    <t:Column width="auto">
+						<Label text="Carrid" />
+						    <t:template>
+							    <Text text="{Payments>Carrid}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+                </t:columns>
+
+                 <t:columns>
+                    <t:Column width="auto">
+						<Label text="Connid" />
+						    <t:template>
+							    <Text text="{Payments>Connid}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+                </t:columns>
+
+                 <t:columns>
+                    <t:Column width="auto">
+						<Label text="Fldate" />
+						    <t:template>
+							    <Text text="{Payments>Fldate}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+                </t:columns>
+
+                 <t:columns>
+                    <t:Column width="auto">
+						<Label text="Price" />
+						    <t:template>
+							    <Text text="{Payments>Price}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+                </t:columns>
+
+                 <t:columns>
+                    <t:Column width="auto">
+						<Label text="Currency" />
+						    <t:template>
+							    <Text text="{Payments>Currency}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+                </t:columns>
+
+                <t:columns>
+                    <t:Column width="auto">
+						<Label text="Planetype" />
+						    <t:template>
+							    <Text text="{Payments>Planetype}" wrapping="false" />
+						    </t:template>
+					</t:Column>
+                </t:columns>
+                </t:Table>
+            
+            </Panel>
+        </VBox>
+</VBox>
+    </Page>
+</mvc:View>
