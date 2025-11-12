@@ -1,0 +1,205 @@
+<mvc:View controllerName="code.cl3.airlinecl3ui505.controller.GWserviceView05"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+   	xmlns:d="sap.suite.ui.microchart"
+    >
+    <Page id="page" title="{i18n>title}">
+         <VBox alignItems="Center">
+         <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Airline" expandable="true">
+            <t:Table id="airline" rows="{/AirlineSet}"  visibleRowCount = "auto" selectionMode="Single" width="60vw">
+                 <t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+						<ToolbarSeparator/>
+                         <ToolbarSpacer>
+                         </ToolbarSpacer>
+                         <Button text= "Search" press="onSearch()" icon="sap-icon://search"/>
+                        <Input id="CID" placeholder="Airline name" width="auto" class="sapUiSmallMarginEnd"/>
+                        
+                       
+					</OverflowToolbar>
+				</t:extension>
+                    <t:columns>
+                       <t:Column width="auto">
+						<Label text="Airline" />
+						<t:template>
+							<Text text="{Carrid}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Airline name" />
+						<t:template>
+							<Text text="{Carrname}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Currency" />
+						<t:template>
+							<Text text="{Currcode}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="auto">
+						<Label text="Home Page" />
+						<t:template>
+							<Text text="{Url}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    </t:columns>
+                </t:Table>
+            </Panel>
+
+            <VBox alignItems="Center">
+                <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Flight" expandable="true">
+                    <t:Table id="airline2"  rows="{flight>/FlightSet}"  visibleRowCount = "auto" selectionMode="Single" width="60vw">
+                        <t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title2" text="Products"/>
+						<ToolbarSeparator/>
+                         <ToolbarSpacer>
+                         </ToolbarSpacer>
+                         <Button text= "Search" press="onWord()" icon="sap-icon://search"/>
+                        <Input id="CID2" placeholder="Airline " width="auto" class="sapUiSmallMarginEnd"/>
+                        <Input id="CID3" placeholder="Flight Connection" width="auto" class="sapUiSmallMarginEnd"/>
+                        </OverflowToolbar>
+                        </t:extension>
+
+                            <t:columns>
+                                <t:Column width="auto" >
+                                    <Label text= "Airline"/>
+                                    <t:template>
+                                        <Text text="{flight>Carrid}" wrapping="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column width="auto" >
+                                    <Label text= "Flight Connection"/>
+                                    <t:template>
+                                        <Text text="{flight>Connid}" wrapping="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column width="auto" >
+                                    <Label text= "Flight Date"/>
+                                    <t:template>
+                                        <Text text="{flight>Fldate}" wrapping="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column width="auto" >
+                                    <Label text= "Airfare"/>
+                                    <t:template>
+                                        <Text text="{flight>Price}" wrapping="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                <t:Column width="auto" >
+                                    <Label text= "Currency"/>
+                                    <t:template>
+                                        <Text text="{flight>Currency}" wrapping="false"/>
+                                    </t:template>
+                                </t:Column>
+
+                                 <t:Column width="auto" >
+                                    <Label text= "Aircraft Type"/>
+                                    <t:template>
+                                        <Text text="{flight>Planetype}" wrapping="false"/>
+                                    </t:template>
+                                </t:Column>
+                                
+                            </t:columns>
+                    </t:Table>
+                </Panel>
+            </VBox>
+
+                                <VBox alignItems="Center">
+                                <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Payments chart" expandable="true">
+                                                    <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                                        height="20rem" width="50rem" vizType="dual_column"
+                                        vizProperties="{
+                                            'title': {'text':'Payments vs Price'},
+                                            'legend': {'visible': true} }">
+                                <viz:dataset>
+                                    <viz.data:FlattenedDataset data="{flight>/PaymentSet}">
+                                        <viz.data:dimensions>
+                                            <viz.data:DimensionDefinition name="Carrid" value="{flight>Carrid}" />
+                                        </viz.data:dimensions>
+                                        <viz.data:measures>
+                                            <viz.data:MeasureDefinition name="Price" value="{flight>Price}" />
+                                            <viz.data:MeasureDefinition name="Paymentsum" value="{flight>Paymentsum}" />
+                                        </viz.data:measures>
+                                    </viz.data:FlattenedDataset>
+                                </viz:dataset>
+
+                                <viz:feeds>
+                                    <!-- 왼쪽 y축 -->
+                                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Price" />
+                                    <!-- 오른쪽 y축 -->
+                                    <viz.feeds:FeedItem uid="valueAxis2" type="Measure" values="Paymentsum" />
+                                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Carrid" />
+                                </viz:feeds>
+                                 <viz:dependents>
+                                                    <viz:Popover id="idPopOver2"></viz:Popover>
+                                </viz:dependents>
+                            </viz:VizFrame>
+                            </Panel>
+                            </VBox>
+
+                            <VBox alignItems="Center">
+                                <Panel class="sapUiSmallMarginTop" width="60vw" headerText="Payments chart2" expandable="true">
+                                    
+                                <viz:VizFrame id="idVizFrame3" uiConfig="{applicationSet:'fiori'}"
+                                    height='20rem' width="50rem" vizType='dual_combination'  vizProperties="{
+                                        'title': {'text':'Payments vs Price'},
+                                        'legend': {'visible': true} }">
+                                    
+                                    <viz:dataset>
+                                        <viz.data:FlattenedDataset data="{flight>/PaymentSet}">
+                                            <viz.data:dimensions>
+                                                <viz.data:DimensionDefinition name="Carrid"
+                                                    value="{flight>Carrid}" />
+                                            </viz.data:dimensions>
+                                            <viz.data:measures>
+                                                <viz.data:MeasureDefinition name="Price"
+                                                    value="{flight>Price}" />
+                                                <viz.data:MeasureDefinition name="Paymentsum"
+                                                    value="{flight>Paymentsum}" />
+                                            </viz.data:measures>
+                                        </viz.data:FlattenedDataset>
+                                    </viz:dataset>
+
+                                    <viz:feeds>
+                                        <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                                            values="Paymentsum" />
+                                        <viz.feeds:FeedItem uid="valueAxis2" type="Measure"
+                                            values="Price" /> 
+                                        <viz.feeds:FeedItem id="feedCategoryAxis" uid="categoryAxis" type="Dimension"
+                                            values="Carrid" />
+                                    </viz:feeds>
+                                    
+                                    <viz:dependents>
+                                        <viz:Popover id="idPopOver3"></viz:Popover>
+                                    </viz:dependents>
+                                </viz:VizFrame>
+                            </Panel>
+                        </VBox>
+
+                        
+                               
+
+                                     
+            
+            </VBox>
+      
+        
+    </Page>
+</mvc:View>

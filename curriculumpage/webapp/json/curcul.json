@@ -1,0 +1,41 @@
+
+    {
+  "Currcul": [
+    {
+      "Course": "UX 1 - UI5 Programming (HTML, Javascript)",
+      "StartMonth": "Oct",
+      "DurationDays": 23
+    },
+    {
+      "Course": "ABAP 1 - Foundation, Dictionary, Screen",
+      "StartMonth": "Nov",
+      "DurationDays": 28
+    },
+    {
+      "Course": "ABAP 2 - Report, Database Updates, Object",
+      "StartMonth": "Dec",
+      "DurationDays": 34
+    },
+    {
+      "Course": "ABAP 3 - ABAP for HANA, CDS View, New Syntax",
+      "StartMonth": "Feb",
+      "DurationDays": 14
+    },
+    {
+      "Course": "UX 2+3 - Gateway + Fiori",
+      "StartMonth": "Mar",
+      "DurationDays": 25
+    },
+    {
+      "Course": "Project - ABAP + UI5/FIORI 개발 프로젝트",
+      "StartMonth": "Apr",
+      "DurationDays": 132
+    },
+    {
+      "Course": "JOB FAIR - 특강(온라인) + 수료식",
+      "StartMonth": "Jun",
+      "DurationDays": 5
+    }
+  ]
+}
+

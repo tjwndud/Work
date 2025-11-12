@@ -1,0 +1,85 @@
+<mvc:View controllerName="code.cl3.curriculumpage.controller.Curriculum"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:tnt="sap.tnt"
+    height="100%"
+    >
+    	<tnt:ToolPage id="toolPage">
+		
+		<tnt:sideContent>
+			<tnt:SideNavigation
+				expanded="true"
+				selectedKey="{/selectedKey}"
+				itemSelect=".onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
+					<tnt:NavigationListItem
+						text="{title}"
+						icon="{icon}"
+						enabled="{enabled}"
+						expanded="{expanded}"
+						items="{items}"
+						key="{key}">
+						<tnt:NavigationListItem
+							text="{title}"
+							key="{key}"
+							enabled="{enabled}" />
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="page2">
+				<pages>
+
+					<ScrollContainer
+						id="root2"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						
+            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='30rem' width="60rem" vizType='horizontal_waterfall'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{/Currcul}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Course"
+                                value="{Course}" />
+                            <viz.data:DimensionDefinition name="StartMonth"
+                                value="{StartMonth}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="DurationDays"
+                                value="{DurationDays}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                        values="DurationDays" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                        values="StartMonth" />
+                    <viz.feeds:FeedItem uid="waterfallType" type="Dimension"
+                        values="Course" />
+                </viz:feeds>
+                <viz:dependents>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+        
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

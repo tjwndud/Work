@@ -1,0 +1,9 @@
+<mvc:View controllerName="code.cl3.day12ui501.controller.Day12_UI501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox alignItems="Center" >
+        <Button text = "Begin param routing" press="onBegin()" class="sapUiSmallMarginTop"/>
+        </VBox>
+    </Page>
+</mvc:View>

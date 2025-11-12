@@ -1,0 +1,13 @@
+<mvc:View controllerName="code.cl3.day12ui501.controller.Day12_UI501Send"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page2" title="{i18n>title}">
+        <VBox alignItems="Center">
+                <Panel class="sapUiSmallMarginTop" headerText="Send" width="60vw">
+                    <Input id = "Carrid" description="Airline code" width="9rem" fieldWidth="3rem"/>
+                    <Input id = "Connid" description="Flight Connection Number" width="16rem" fieldWidth="4rem"/>
+                    <Button icon="sap-icon://paper-plane" text = "Send" press="onSend()"/>
+                </Panel>
+        </VBox>
+    </Page>
+</mvc:View>
