@@ -1,0 +1,87 @@
+<mvc:View controllerName="code.cl3.curriculumpage.controller.Curriculum2"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:tnt="sap.tnt"
+	xmlns:k="sap.suite.ui.microchart"
+	xmlns:d="sap.suite.ui.commons"
+	displayBlock="true"
+    height="100%"
+    >
+    	
+						
+            <Page
+		title="{i18n>title}"
+		showNavButton="false">
+			<Toolbar>
+				<ToolbarSpacer/>
+				
+				<Button text = "Go Home" icon= "sap-icon://home" press= "goHome()" class="sapUiResponsiveMargin"/>
+				
+				<Button text="Approve" press="onPress" type="Accept" class="sapUiResponsiveMargin"/>
+				<Button text="Reject" press="onPress" type="Reject" class="sapUiResponsiveMargin"/>
+
+				<Button text="Mark as Favorite" press="onPress"  class="sapUiResponsiveMargin"/>
+
+				<Button text="Send Email" press="onPress" class="sapUiResponsiveMargin"/>
+
+				<Button text="Share" press="onPress"  class="sapUiResponsiveMargin"/>
+
+				<Button text="Print" press="onPress" class="sapUiResponsiveMargin"/>
+				
+				<Button icon="sap-icon://print" press="onPress"  class="sapUiResponsiveMargin"/>
+
+				<Button text="Export as Excel" press="onPress" class="sapUiResponsiveMargin"/>
+			</Toolbar>
+		<HBox
+			justifyContent="SpaceBetween"
+			width="100%"
+			class="sapUiSmallMarginBottom">
+			<Button text ="Go Back" icon="sap-icon://cargo-train" press="goBack()"  class="sapUiResponsiveMargin"/>
+			<Button text ="Go Next" icon="sap-icon://cargo-train" press="goBack()"  class="sapUiResponsiveMargin" />
+		</HBox>
+			
+			<VBox class="sapUiMediumMargin">
+		<Panel >
+			<d:ProcessFlow
+				id="processFlow"
+				scrollable="true"
+				foldedCorners="true"
+				nodePress="onNodePress"
+				nodes="{/nodes}"
+				lanes="{/lanes}">
+				
+				<d:nodes>
+					<d:ProcessFlowNode
+						nodeId="{id}"
+						laneId="{laneId}"
+						title="{title}"
+						titleAbbreviation="{abbr}"
+						children="{children}"
+						state="{state}"
+						stateText="{stateText}"
+						texts="{texts}" />
+				</d:nodes>
+
+				<d:lanes>
+					<d:ProcessFlowLaneHeader
+						laneId="{id}"
+						iconSrc="{icon}"
+						text="{label}"
+						position="{position}" />
+				</d:lanes>
+
+			</d:ProcessFlow>
+		</Panel>
+		</VBox>
+	</Page>
+				
+					
+						
+
+	
+</mvc:View>

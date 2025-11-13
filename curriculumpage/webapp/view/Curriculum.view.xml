@@ -3,52 +3,58 @@
     xmlns:viz="sap.viz.ui5.controls" 
     xmlns:layout="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:tnt="sap.tnt"
+	xmlns:k="sap.suite.ui.microchart"
+	xmlns:d="sap.suite.ui.commons"
+	displayBlock="true"
     height="100%"
     >
-    	<tnt:ToolPage id="toolPage">
-		
-		<tnt:sideContent>
-			<tnt:SideNavigation
-				expanded="true"
-				selectedKey="{/selectedKey}"
-				itemSelect=".onItemSelect">
-				<tnt:NavigationList items="{path: '/navigation'}">
-					<tnt:NavigationListItem
-						text="{title}"
-						icon="{icon}"
-						enabled="{enabled}"
-						expanded="{expanded}"
-						items="{items}"
-						key="{key}">
-						<tnt:NavigationListItem
-							text="{title}"
-							key="{key}"
-							enabled="{enabled}" />
-					</tnt:NavigationListItem>
-				</tnt:NavigationList>
-				<tnt:fixedItem>
-					<tnt:NavigationList items="{path: '/fixedNavigation'}">
-						<tnt:NavigationListItem text="{title}" icon="{icon}" />
-					</tnt:NavigationList>
-				</tnt:fixedItem>
-			</tnt:SideNavigation>
-		</tnt:sideContent>
-		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="page2">
-				<pages>
-
-					<ScrollContainer
-						id="root2"
-						horizontal="false"
-						vertical="true"
-						height="100%"
-						class="sapUiContentPadding">
+    	
 						
-            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
-                height='30rem' width="60rem" vizType='horizontal_waterfall'>
+            <Page
+		title="{i18n>title}"
+		showNavButton="false">
+			<Toolbar>
+				<ToolbarSpacer/>
+				
+				<Button text = "Go Home" icon= "sap-icon://home" press= "goHome()" class="sapUiResponsiveMargin"/>
+				
+				<Button text="Approve" press="onPress" type="Accept" class="sapUiResponsiveMargin"/>
+				<Button text="Reject" press="onPress" type="Reject" class="sapUiResponsiveMargin"/>
+
+				<Button text="Mark as Favorite" press="onPress"  class="sapUiResponsiveMargin"/>
+
+				<Button text="Send Email" press="onPress" class="sapUiResponsiveMargin"/>
+
+				<Button text="Share" press="onPress"  class="sapUiResponsiveMargin"/>
+
+				<Button text="Print" press="onPress" class="sapUiResponsiveMargin"/>
+				
+				<Button icon="sap-icon://print" press="onPress"  class="sapUiResponsiveMargin"/>
+
+				<Button text="Export as Excel" press="onPress" class="sapUiResponsiveMargin"/>
+
+				
+				
+			</Toolbar>
+		<HBox
+			justifyContent="SpaceBetween"
+			width="100%"
+			class="sapUiSmallMarginBottom">
+			<Button text ="Go Back" icon="sap-icon://cargo-train" press="goBack()"  class="sapUiResponsiveMargin"/>
+			<Button text ="Go Next" icon="sap-icon://cargo-train" press="goNext()"  class="sapUiResponsiveMargin" />
+		</HBox>
+			
+		<VBox justifyContent="Start" alignItems="Center" fitContainer="true" >
+			<Panel  headerText="Code Academy 커리큘럼 현황"  class="sapUiTinyMarginTop" width="60rem">
+			<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='23rem' width="55rem" vizType='horizontal_waterfall'
+				vizProperties="{
+                    'title': {'text':'Code Academy 전체 커리큘럼', 'visible':true}}"
+					class="sapUiTinyMarginTop">
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{/Currcul}">
                         <viz.data:dimensions>
@@ -68,18 +74,63 @@
                     <viz.feeds:FeedItem uid="valueAxis" type="Measure"
                         values="DurationDays" />
                     <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
-                        values="StartMonth" />
-                    <viz.feeds:FeedItem uid="waterfallType" type="Dimension"
                         values="Course" />
+                    <viz.feeds:FeedItem uid="waterfallType" type="Dimension"
+                        values="StartMonth" />
                 </viz:feeds>
                 <viz:dependents>
                     <viz:Popover id="idPopOver"></viz:Popover>
                 </viz:dependents>
             </viz:VizFrame>
-        
-					</ScrollContainer>
-				</pages>
-			</NavContainer>
-		</tnt:mainContents>
-	</tnt:ToolPage>
+				
+						
+					
+			</Panel>
+			<Panel headerText="Code Academy 커리큘럼 Bar"  class="sapUiSmallMarginTop" width="60rem">
+					<viz:VizFrame
+					            class="sapUiSmallMarginTop"
+								id="idStackedBar"
+								uiConfig="{applicationSet:'fiori'}"
+								height="9rem"
+								width="60rem"
+								vizType="stacked_bar"
+								vizProperties="{
+									'title': {'text': '과정 타임라인 (Stacked Bar)', 'visible': true},
+									'plotArea': {
+										'dataLabel': {'visible': true, 'position': 'inside'}
+									},
+									'valueAxis': {'title': {'visible': true, 'text': '기간 (Duration)'}},
+									'categoryAxis': {'title': {'visible': false}},
+									'legend': {'visible': true, 'position': 'bottom'}
+								}">
+
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{curr>/Curriculum}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="Program" value="{curr>Program}" />
+											<viz.data:DimensionDefinition name="Stage" value="{curr>Stage}" />
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="Duration" value="{curr>Duration}" />
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Duration"  />
+									<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Program" />
+									<viz.feeds:FeedItem uid="color" type="Dimension" values="Stage" />
+								</viz:feeds>
+
+							</viz:VizFrame>
+									
+
+			</Panel>
+		</VBox>
+	</Page>
+				
+					
+						
+
+	
 </mvc:View>

@@ -65,7 +65,7 @@
         "routerClass": "sap.m.routing.Router",
         "controlAggregation": "pages",
         "controlId": "app",
-        "transition": "slide",
+        "transition": "flip",
         "type": "View",
         "viewType": "XML",
         "path": "code.cl3.curriculumpage.view",
@@ -79,13 +79,37 @@
           "target": [
             "TargetCurriculum"
           ]
+        },
+         {
+          "name": "RouteCurriculum2",
+          "pattern": "Curr2",
+          "target": [
+            "TargetCurriculum2"
+          ]
+        },
+         {
+          "name": "RouteCurriculum3",
+          "pattern": "Curr3",
+          "target": [
+            "TargetCurriculum3"
+          ]
         }
       ],
       "targets": {
         "TargetCurriculum": {
           "id": "Curriculum",
           "name": "Curriculum"
+        },
+
+        "TargetCurriculum2": {
+          "id": "Curriculum2",
+          "name": "Curriculum2"
+        },
+        "TargetCurriculum3": {
+          "id": "Curriculum3",
+          "name": "Curriculum3"
         }
+        
       }
     },
     "rootView": {
