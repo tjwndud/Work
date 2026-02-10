@@ -20,7 +20,7 @@ sap.ui.define([
         },
         goBack() {
              const oHistory = History.getInstance();
-			const sPreviousHash = oHistory.getPreviousHash();
+			const sPreviousHash = oHistory.getPreviousHash();   
 
 			if (sPreviousHash !== undefined) { //이전화면이 존재한다면 
 				window.history.go(-1);// 이전화면으로 돌아가라
