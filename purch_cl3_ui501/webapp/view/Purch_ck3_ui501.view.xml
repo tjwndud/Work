@@ -1,0 +1,109 @@
+<mvc:View controllerName="cl3.purch.purchcl3ui501.controller.Purch_ck3_ui501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    >
+    <Page id="page" title="{i18n>title}">
+
+        <VBox >
+    
+        <Panel  class = "sapUiResponsiveMargin" headerText="Document heder" width="auto" expandable="false">
+
+            <t:Table 	id = "table"
+                        rows="{/PurchSet}"
+				        selectionMode="None" >
+
+                		<t:extension>
+					    <OverflowToolbar style="Clear" width="auto">
+						<Title id="title" text="Purchase document"/>
+						<ToolbarSpacer/>
+					
+						<ToolbarSeparator/>
+                        <Button id="btn1" text="Search" icon = "sap-icon://search" press="onWord()"/>
+                        <Input id="type" placeholder="Document Type" width="auto" />
+					</OverflowToolbar>
+				</t:extension>
+
+                <t:columns>
+                    <t:Column width="auto" >
+                        <Label text = "Purchase Order" />
+                        <t:template>
+                            <Text text = "{ebeln}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Company Code" />
+                        <t:template>
+                            <Text text = "{bukrs}" wrapping="false"/>
+                        </t:template>
+                      </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Document Category" />
+                        <t:template>
+                            <Text text = "{bstyp}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Document Type" />
+                        <t:template>
+                            <Text text = "{bsart}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Document Status" />
+                        <t:template>
+                            <Text text = "{bsakz}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    
+                </t:columns>
+
+            </t:Table>
+
+        </Panel>
+
+        <Panel class = "sapUiResponsiveMargin" headerText="Document heder" width="auto" expandable="false">
+        <viz:VizFrame id="idVizFrame" height='30rem' width="auto" vizType='bubble'
+        vizProperties="{ title: {text : 'Flight Data', visible : true}}">
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset data="{flight>/FlightSet}">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition name="carrid" value="{flight>carrid}" />
+                            </viz.data:dimensions>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition name="seatsmax" value="{flight>seatsmax}" />
+                                <viz.data:MeasureDefinition name="seatsocc" value="{flight>seatsocc}" />
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+
+                    <viz:feeds>
+                        <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="seatsmax" />
+                        
+                        <viz.feeds:FeedItem uid="valueAxis2" type="Measure" values="seatsocc" />
+
+                        <viz.feeds:FeedItem uid="bubbleWidth" type="Measure" values="seatsocc" />
+
+                        <viz.feeds:FeedItem uid="color" type="Dimension" values="carrid" />
+                    </viz:feeds>
+
+                    <viz:dependents>
+                        <viz:Popover id="idPopOver"></viz:Popover>
+                    </viz:dependents>
+                </viz:VizFrame>
+        </Panel>
+
+        </VBox>
+
+
+    </Page>
+</mvc:View>

@@ -1,0 +1,181 @@
+<mvc:View controllerName="cl3mento.mentorcl3ui501.controller.MentoringPR"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+
+        <VBox >
+
+        <Panel class = "sapUiResponsiveMargin" headerText="Search" width = "auto" expandable="true">
+            <HBox >    
+                <Label text = "Company Code" width="10rem"/>
+                <Input id="code" width="10rem" />
+            </HBox>    
+                <Label text = "Fiscal Year" width="10rem"/>
+                <Input id="year" width="10rem" />
+            <HBox >
+                <Label text = "Document Number" width="10rem"/>
+                <Input id= "DocNum" width="10rem" />
+                <Button id="btn1" text="Search" icon = "sap-icon://search" press="onWord()" class="sapUiLargeMarginBegin"/>
+            </HBox>
+        </Panel>
+    
+        <Panel  class = "sapUiResponsiveMargin" headerText="Document heder" width="auto" expandable="true">
+
+            <t:Table 	id = "table"
+                        rows="{/BkpfSet}"
+				        selectionMode="None" >
+                
+                <t:extension>
+                    <OverflowToolbar>
+                        <Title text= "Material List"/>
+                    </OverflowToolbar>
+                </t:extension>
+
+                <t:columns>
+                    <t:Column width="11rem" >
+                        <Label text = "Company Code" />
+                        <t:template>
+                            <Text text = "{bukrs}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Fiscal Year" />
+                        <t:template>
+                            <Text text = "{gjahr}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Document Number" />
+                        <t:template>
+                            <Text text = "{belnr}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Document Type" />
+                        <t:template>
+                            <Text text = "{blart}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Posting Date" />
+                        <t:template>
+                            <Text text = "{budat}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                      <t:Column width="11rem" >
+                        <Label text = "Description" />
+                        <t:template>
+                            <Text text = "{bktxt}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                     <t:Column width="11rem" >
+                        <Label text = "Currency" />
+                        <t:template>
+                            <Text text = "{waers}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    
+                    
+                </t:columns>
+
+            </t:Table>
+
+        </Panel>
+
+            <Panel  class = "sapUiResponsiveMargin" headerText="Document Line item" width="auto" expandable="true">
+
+            <t:Table 	id = "table2"       
+                        rows="{Bseg>/BsegSet}"
+				        selectionMode="None" >
+                
+                <t:extension>
+                    <OverflowToolbar>
+                        <Title text= "Document Line Item"/>
+                    </OverflowToolbar>
+                </t:extension>
+
+                <t:columns>
+                    <t:Column width="11rem" >
+                        <Label text = "Company Code" />
+                        <t:template>
+                            <Text text = "{Bseg>bukrs}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Fiscal Year" />
+                        <t:template>
+                            <Text text = "{Bseg>gjahr}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Document Number" />
+                        <t:template>
+                            <Text text = "{Bseg>belnr}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Document Line Item" />
+                        <t:template>
+                            <Text text = "{Bseg>buzei}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="11rem" >
+                        <Label text = "Segment Text" />
+                        <t:template>
+                            <Text text = "{Bseg>sgtxt}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                      <t:Column width="11rem" >
+                        <Label text = "GL Account" />
+                        <t:template>
+                            <Text text = "{Bseg>hkont}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                     <t:Column width="11rem" >
+                        <Label text = "Text" />
+                        <t:template>
+                            <Text text = "{Bseg>txt50}" wrapping="false"/>
+                        </t:template>
+
+                    </t:Column>
+                         <t:Column width="11rem" >
+                        <Label text = "Amount" />
+                        <t:template>
+                            <Text text = "{Bseg>dmbtr}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                         <t:Column width="11rem" >
+                        <Label text = "Currency " />
+                        <t:template>
+                            <Text text = "{Bseg>pswsl}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    
+                    
+                    
+                </t:columns>
+
+            </t:Table>
+
+        </Panel>
+    
+    </VBox>
+
+    </Page>
+</mvc:View>
