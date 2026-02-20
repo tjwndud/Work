@@ -1,7 +1,7 @@
 {
   "_version": "1.60.0",
   "sap.app": {
-    "id": "cl3.purch.purchcl3ui515",
+    "id": "code.cl3.zgateway15",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,23 +13,14 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.19.1",
-      "toolsId": "dfb20911-6eb0-46ff-afa6-b978af3e7c26"
+      "toolsId": "32aa8d12-6353-44fc-a44e-0229a4184675"
     },
     "dataSources": {
-      "ZCL3_15_20_DDL_CDS_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZCL3_15_20_DDL_CDS_VAN',Version='0001')/$value/",
-        "type": "ODataAnnotation",
-        "settings": {
-          "localUri": "localService/mainService/ZCL3_15_20_DDL_CDS_VAN.xml"
-        }
-      },
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZCL3_15_20_DDL_CDS/",
+        "uri": "/sap/opu/odata/sap/ZGWCL315_03_SRV/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "ZCL3_15_20_DDL_CDS_VAN"
-          ],
+          "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
         }
@@ -69,7 +60,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "cl3.purch.purchcl3ui501.i18n.i18n"
+          "bundleName": "code.cl3.zgateway15.i18n.i18n"
         }
       },
       "": {
@@ -93,28 +84,28 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "cl3.purch.purchcl3ui501.view",
+        "path": "code.cl3.zgateway15.view",
         "async": true,
-        "viewPath": "cl3.purch.purchcl3ui501.view"
+        "viewPath": "code.cl3.zgateway15.view"
       },
       "routes": [
         {
-          "name": "RoutePurch_ck3_ui501",
+          "name": "Routezgw_cl3_ui501",
           "pattern": ":?query:",
           "target": [
-            "TargetPurch_ck3_ui501"
+            "Targetzgw_cl3_ui501"
           ]
         }
       ],
       "targets": {
-        "TargetPurch_ck3_ui501": {
-          "id": "Purch_ck3_ui501",
-          "name": "Purch_ck3_ui501"
+        "Targetzgw_cl3_ui501": {
+          "id": "zgw_cl3_ui501",
+          "name": "zgw_cl3_ui501"
         }
       }
     },
     "rootView": {
-      "viewName": "cl3.purch.purchcl3ui501.view.App",
+      "viewName": "code.cl3.zgateway15.view.App",
       "type": "XML",
       "id": "App",
       "async": true

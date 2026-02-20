@@ -1,0 +1,108 @@
+    <mvc:View controllerName="flight.cl3.zflight15.controller.Zflight15"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m"
+        xmlns:t="sap.ui.table"
+        xmlns:u="sap.ui.unified"
+	    xmlns:c="sap.ui.core"
+        xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+        xmlns:smartTable="sap.ui.comp.smarttable"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+	    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+        >
+        <Page id="page" title="{i18n>title}">
+                        <VBox >
+            <Panel  class = "sapUiResponsiveMargin" headerText="Flight data" width="auto" expandable="false">
+
+            <t:Table 	id = "table"
+                        rows="{/FlightSet}"
+				        selectionMode="None" >
+
+                <t:columns>
+                    <t:Column width="auto" >
+                        <Label text = "Airline" />
+                        <t:template>
+                            <Text text = "{carrid}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Connection ID" />
+                        <t:template>
+                            <Text text = "{connid}" wrapping="false"/>
+                        </t:template>
+                      </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Flight Date" />
+                        <t:template>
+                            <Text text = "{Fldate}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Booking ID" />
+                        <t:template>
+                            <Text text = "{bookid}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Departure Time" />
+                        <t:template>
+                            <Text text = "{Deptime}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Custom ID" />
+                        <t:template>
+                            <Text text = "{customid}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+               	<t:Column width="8rem">
+                    <Label text="Luggage Weight" />
+                    <t:template>
+                        <Text text="{
+                            parts:[{path:'luggweight'},{path:'wunit'}],
+                            type: 'sap.ui.model.type.Unit',
+                            formatOptions: {showMeasure: true }
+                            }" wrapping="false" />
+                    </t:template>
+	            </t:Column> 
+
+                <t:Column width="7rem">
+                    <Label text="Foreign Amount" />
+                    <t:template>
+                        <Text text="{ 
+                            parts:[{path:'forcuram'},{path:'forcurkey'}],   
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {showMeasure: true }
+                        }" wrapping="false"/>
+                    </t:template>
+                </t:Column>
+                    
+                </t:columns>
+
+            </t:Table>
+
+        </Panel>
+            
+            
+            </VBox>
+
+            <VBox fitContainer="true">
+                <smartTable:SmartTable id="LineItemsSmartTable" entitySet="FlightSet" smartFilterId="smartFilterBar" tableType="Table" 
+                useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" 
+                useTablePersonalisation="true" header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" 
+                enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="false" editTogglable="true"
+                app:useSmartToggle="true"
+                initiallyVisibleFields="carrid,connid,Fldate,bookid,Deptime,customid,luggweight,forcuram"
+                >
+                    <smartTable:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%"/>
+                    </smartTable:layoutData>
+                </smartTable:SmartTable>
+            </VBox>
+        </Page>
+    </mvc:View>

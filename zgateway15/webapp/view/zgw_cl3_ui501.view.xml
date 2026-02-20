@@ -1,0 +1,126 @@
+<mvc:View controllerName="code.cl3.zgateway15.controller.zgw_cl3_ui501"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    >
+    <Page id="page" title="{i18n>title}">
+
+    <VBox >
+    
+            <Panel  class = "sapUiResponsiveMargin" headerText="Financial Document Data" width="auto" expandable="false">
+            
+        
+            <t:Table 	id = "table"
+                        rows="{/BkpfSet}"
+				        selectionMode="None"
+                        visibleRowCountMode = "Auto">
+                        <t:extension>
+                            <OverflowToolbar style="Clear" width="auto">
+                                <Title id="title" text="Financial Document Data"/>
+                                <ToolbarSpacer/>
+                                <ToolbarSeparator/>
+                                <Button id="btn1" text="Search" icon = "sap-icon://search" press="onWord()"/>
+                                <Input id="code" placeholder="Company Code" width="10rem" />
+                                <Input id= "DocNum" placeholder="Document Number" width="10rem" />
+                                <Input id="year" placeholder="Fiscal Year" width="10rem" />
+                            </OverflowToolbar>
+                        </t:extension>
+                <t:columns>
+                    <t:Column width="auto" >
+                        <Label text = "Company Code" />
+                        <t:template>
+                            <Text text = "{Bukrs}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Document Number" />
+                        <t:template>
+                            <Text text = "{Belnr}" wrapping="false"/>
+                        </t:template>
+                      </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Fiscal Year" />
+                        <t:template>
+                            <Text text = "{Gjahr}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Line Item" />
+                        <t:template>
+                            <Text text = "{Buzei}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Debit/Credit Indicator" />
+                        <t:template>
+                            <Text text = "{Shkzg}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="auto" >
+                        <Label text = "Business Area" />
+                        <t:template>
+                            <Text text = "{Gsber}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+
+                <t:Column width="7rem">
+                    <Label text="Amount" />
+                    <t:template>
+                        <Text text="{ 
+                            parts:[{path:'Wrbtr'},{path:'Waers'}],   
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {showMeasure: true }
+                        }" wrapping="false"/>
+                    </t:template>
+                </t:Column>               
+
+               	<t:Column width="8rem">
+                    <Label text="Luggage Weight" />
+                    <t:template>
+                        <Text text="{
+                            parts:[{path:'Menge'},{path:'Meins'}],
+                            type: 'sap.ui.model.type.Unit',
+                            formatOptions: {showMeasure: true }
+                            }" wrapping="false" />
+                    </t:template>
+	            </t:Column> 
+
+                    <t:Column width="auto" >
+                        <Label text = "Tax Code" />
+                        <t:template>
+                            <Text text = "{Mwskz}" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+
+            </t:Table>
+
+        </Panel>
+            </VBox>
+            <Panel  class = "sapUiResponsiveMargin" headerText="Financial Document Data (Smart Table)" width="auto" expandable="false">
+                <smartTable:SmartTable id="FinancialDocumentSmartTable" entitySet="BkpfSet" smartFilterId="smartFilterBar" tableType="Table" 
+                useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" 
+                useTablePersonalisation="true" header="" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" 
+                enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="false" editTogglable="true"
+                app:useSmartToggle="true"
+                initiallyVisibleFields="Bukrs,Belnr,Gjahr,Buzei,Shkzg,Gsber,Wrbtr,Waers,Menge,Meins,Mwskz"
+                >
+                    <smartTable:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%"/>
+                    </smartTable:layoutData>
+                </smartTable:SmartTable>
+                </Panel>
+            
+    </Page>
+</mvc:View>
