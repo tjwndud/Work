@@ -1,0 +1,86 @@
+<mvc:View controllerName="mentoringcl3.zmentorcl315.controller.ZMentor15_cl3"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    >
+    <Page id="page1" title="{i18n>title}">
+        <Panel class="sapUiResponsiveMargin" headerText="Page Router" width="auto" expandable="true">
+            <Button text="Go to Sales Document Item" press="goItem"/>
+            
+            <Button class="sapUiSmallMarginBegin" text="Go to Sales Order Document" press="goJoin"/>
+        </Panel>
+
+                <Panel  id="id1"
+                    class="sapUiResponsiveMargin"
+                    headerText="Document Header" 
+                    width="auto">
+                <t:Table 
+                id="Table"
+                rows="{/HeaderSet}"
+				selectionMode="Single"
+				paste="onPaste"
+				ariaLabelledBy="Airline"
+                visibleRowCount = '6'>
+                    <t:extension>
+                        <OverflowToolbar >
+                            <Title text="Document Header Data"/>
+                        </OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Vbeln/@sap:label}" />
+                            <t:template>
+                                <Text text="{Vbeln}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Auart/@sap:label}" />
+                            <t:template>
+                                <Text text="{Auart}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Vkorg/@sap:label}" />
+                            <t:template>
+                                <Text text="{Vkorg}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Bstnk/@sap:label}" />
+                            <t:template>
+                                <Text text="{Bstnk}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Kunnr/@sap:label}" />
+                            <t:template>
+                                <Text text="{Kunnr}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Netwr/@sap:label}" />
+                            <t:template>
+                                <Text text="{Netwr}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Waerk/@sap:label}" />
+                            <t:template>
+                                <Text text="{Waerk}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{/#HeaderSet/Lifsk/@sap:label}" />
+                            <t:template>
+                                <Text text="{Lifsk}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                </t:Table>
+            </Panel>
+
+    </Page>
+</mvc:View>

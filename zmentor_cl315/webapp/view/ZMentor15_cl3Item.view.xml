@@ -1,0 +1,94 @@
+<mvc:View controllerName="mentoringcl3.zmentorcl315.controller.ZMentor15_cl3Item"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    >
+    <Page id="page2" title="{i18n>title}">
+        <Panel class="sapUiResponsiveMargin" headerText="Page Router" width="auto" expandable="true">
+            <Button text="Go to Sales Document Header" press="goHeader"/>
+            
+            <Button class="sapUiSmallMarginBegin" text="Go to Sales Order Document" press="goJoin"/>
+        </Panel>
+    <Panel  id="id2"
+                    class="sapUiResponsiveMargin"
+                    headerText="Document Header" 
+                    width="auto">
+                <t:Table 
+                id="Table2"
+                rows="{Item>/ItemSet}"
+				selectionMode="Single"
+				paste="onPaste"
+				ariaLabelledBy="Document Item"
+                visibleRowCount = '6'>
+                    <t:extension>
+                        <OverflowToolbar >
+                            <Title text="Document Item Data"/>
+                        </OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <t:Column width="auto">
+                           <Label text="{Item>/#ItemSet/Vbeln/@sap:label}" />    
+                            <t:template>
+                                <Text text="{Item>Vbeln}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{Item>/#ItemSet/Posnr/@sap:label}" />
+                            <t:template>
+                                <Text text="{Item>Posnr}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{Item>/#ItemSet/Matnr/@sap:label}" />
+                            <t:template>
+                                <Text text="{Item>Matnr}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{Item>/#ItemSet/Arktx/@sap:label}" />
+                            <t:template>
+                                <Text text="{Item>Arktx}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{Item>/#ItemSet/Werks/@sap:label}" />
+                            <t:template>
+                                <Text text="{Item>Werks}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="{Item>/#ItemSet/Lgort/@sap:label}" />
+                            <t:template>
+                                <Text text="{Item>Lgort}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                      
+                        <t:Column width="auto">
+                        <Label text="{Item>/#ItemSet/Kwmeng/@sap:label}" />
+                        <t:template>
+                            <Text text="{ 
+                                parts:[{path:'Item>Kwmeng'},{path:'Item>Vrkme'}],
+                                type: 'sap.ui.model.type.Unit',
+                                formatOptions: {showMeasure: true }
+                                }" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="auto">
+                        <Label text="{Item>/#ItemSet/Netpr/@sap:label}  " />
+                        <t:template>
+                            <Text text="{ 
+                                parts:[{path:'Item>Netpr'},{path:'Item>Waerk'}],
+                                type: 'sap.ui.model.type.Currency',
+                                formatOptions: {showMeasure: true }
+                               }" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    </t:columns>
+                </t:Table>
+            </Panel>
+
+    </Page>
+</mvc:View>

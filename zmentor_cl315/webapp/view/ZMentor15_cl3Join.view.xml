@@ -1,0 +1,107 @@
+<mvc:View controllerName="mentoringcl3.zmentorcl315.controller.ZMentor15_cl3Join"
+    xmlns:t="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns="sap.m"
+    >
+
+    <Page id="page3" title="{i18n>title}">
+    
+         <Panel class="sapUiResponsiveMargin" headerText="Page Router" width="auto" expandable="true">
+            <Button text="Go to Sales Document Header" press="goHeader"/>    
+            <Button class="sapUiSmallMarginBegin" text="Go to Sales Document Item" press="goItem"/>
+        </Panel>
+    
+        <Panel class="sapUiResponsiveMargin" headerText="Condition" width="auto" expandable="true">
+            <HBox >
+                <Text text="Sales Document No." width="8rem"/>
+                <Input id="vbeln" width="10rem"/>
+            </HBox>
+            <HBox >
+                <Text text="Sales Item No." width="8rem"/>
+                <Input id="posnr" width="10rem"/>
+                <Button class="sapUiSmallMarginBegin" text="Search" icon="sap-icon://search" press="Search"/>
+            </HBox>
+        </Panel>
+    
+        <Panel class="sapUiResponsiveMargin" headerText="Sales Order" width="auto">
+            <t:Table
+                id="Table3"
+                rows="{Join>/OrderSet}"
+                selectionMode="None"
+                paste="onPaste"
+                ariaLabelledBy="title">
+                <t:extension>
+                    <OverflowToolbar style="Standard">
+                        <Title id="title3" text="Join Item"/>
+                    </OverflowToolbar>
+                </t:extension>
+                <t:columns>
+                    <t:Column width="auto">
+                        <Label text="Join No." />
+                        <t:template>
+                            <Text text="{Join>vbeln}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="5rem">
+                        <Label text="Item No." />
+                        <t:template>
+                            <Text text="{Join>posnr}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="auto">
+                        <Label text="Customer Ref." />
+                        <t:template>
+                            <Text text="{Join>bstnk}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="12rem">
+                        <Label text="Short Text" />
+                        <t:template>
+                            <Text text="{Join>arktx}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="4rem">
+                        <Label text="Plant" />
+                        <t:template>
+                            <Text text="{Join>werks}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="auto">
+                        <Label text="Name" />
+                        <t:template>
+                            <Text text="{Join>name1}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="6rem">
+                        <Label text="Order Quan." />
+                        <t:template>
+                            <Text text="{ 
+                                parts:[{path:'Join>kwmeng'},{path:'Join>vrkme'}],
+                                type: 'sap.ui.model.type.Unit',
+                                formatOptions: {showMeasure: true }
+                                }" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="auto">
+                        <Label text="Net Price" />
+                        <t:template>
+                            <Text text="{ 
+                                parts:[{path:'Join>netpr'},{path:'Join>waerk'}],
+                                type: 'sap.ui.model.type.Currency',
+                                formatOptions: {showMeasure: true }
+                               }" wrapping="false"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="auto">
+                        <Label text="Delivery Block" />
+                        <t:template>
+                            <Text text="{Join>BlockText}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </Panel>
+    </Page>
+</mvc:View>
