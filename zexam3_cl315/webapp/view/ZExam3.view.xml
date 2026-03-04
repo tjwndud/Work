@@ -1,0 +1,49 @@
+<mvc:View controllerName="code.cl3.zexam3cl315.controller.ZExam3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:layout="sap.ui.layout"
+   	xmlns:d="sap.suite.ui.microchart"
+    >
+    <Page id="page" title="{i18n>title}">
+        
+     <Panel class = "sapUiResponsiveMargin" headerText="seats booking information" width="auto" expandable="false">
+        <viz:VizFrame id="idVizFrame" height='30rem' width="auto" vizType='bubble'
+        vizProperties="{ title: {text : 'seats booking information', visible : true}}">
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset data="{/OrderSet}">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition name="Carrname" value="{Carrname}" />
+                            </viz.data:dimensions>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition name="seatsmax" value="{Seatsmax}" />
+                                <viz.data:MeasureDefinition name="seatsocc" value="{Seatsocc}" />
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+
+                    <viz:feeds>
+                        <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="seatsmax" />
+                        
+                        <viz.feeds:FeedItem uid="valueAxis2" type="Measure" values="seatsocc" />
+
+                        <viz.feeds:FeedItem uid="bubbleWidth" type="Measure" values="seatsocc" />
+
+                        <viz.feeds:FeedItem uid="color" type="Dimension" values="Carrname" />
+                    </viz:feeds>
+
+                    <viz:dependents>
+                        <viz:Popover id="idPopOver"></viz:Popover>
+                    </viz:dependents>
+                </viz:VizFrame>
+        </Panel>
+
+        
+
+    </Page>
+</mvc:View>

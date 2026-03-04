@@ -1,0 +1,133 @@
+<mvc:View controllerName="code.cl3.zexamcl315.controller.ZExam"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    >
+    <Page id="page" title="{i18n>title}">
+
+     <Panel  id="id1"
+                    class="sapUiResponsiveMargin"
+                    headerText="Odata" 
+                    width="auto">
+                <t:Table 
+                id="Table"
+                rows="{/CartSet}"
+				selectionMode="Single"
+				paste="onPaste"
+				ariaLabelledBy="Homeshopping cart information"
+                visibleRowCount = '5'>
+                    <t:extension>
+                        <OverflowToolbar >
+                            <Button id="btn1" text="Search" icon = "sap-icon://search" press="onWord()"/>
+                                <Input id="Rbukr" placeholder="Bukrs" width="10rem" />
+                                <Input id= "DocNum" placeholder="Document Number" width="10rem" />
+                        </OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <t:Column width="auto">
+                            <Label text="G/L 회계 연도" />
+                            <t:template>
+                                <Text text="{Ryear}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="회사 코드" />
+                            <t:template>
+                                <Text text="{Rbukrs}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="전표 번호" />
+                            <t:template>
+                                <Text text="{Belnr}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="계정 번호" />
+                            <t:template>
+                                <Text text="{Racct}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="설명" />
+                            <t:template>
+                                <Text text="{Txt50}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="auto">
+                            <Label text="Remark" />
+                            <t:template>
+                                <Text text="{Remark}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                           <t:Column width="7rem">
+                    <Label text="Amount" />
+                    <t:template>
+                        <Text text="{ 
+                            parts:[{path:'Hsl'},{path:'Rtcur'}],   
+                        type: 'sap.ui.model.type.Currency',
+                        formatOptions: {showMeasure: true }
+                        }" wrapping="false"/>
+                    </t:template>
+                </t:Column>   
+                        <t:Column width="auto">
+                            <Label text="Pindicator" />
+                            <t:template>
+                                <Text text="{PostYn}" wrapping="false" />   
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                </t:Table>
+
+                <MessageStrip showIcon="true" text="Data control" showCloseButton="false" />
+                <OverflowToolbar >
+                    <ToolbarSpacer />
+                    <Label text = "Contents" />
+                    <Button text="Clear"    icon="sap-icon://clear-all" press="onClear" />
+                    <Button text="Display"  icon="sap-icon://detail-view" press="onDisplay" />
+                    <Button text="Create"   icon="sap-icon://create" press="onCreate"/>
+                    <Button text="Update"   icon="sap-icon://write-new-document" press="onUpdate"/>
+                    <Button text="Delete"   icon="sap-icon://delete" press="onDelete" />
+                </OverflowToolbar>
+                <f:SimpleForm layout="ResponsiveGridLayout" title="Content" >
+                    <f:content >
+                     
+                        <Label  text="회사 코드" />
+                        <Input id="Rbukrs" placeholder="Company" width="8rem"/>
+                 
+                        <Label text="G/L 회계연도" />
+                        <Input id="Ryear" placeholder="Year" width="4rem"/>
+              
+                        <Label text="전표 번호" />
+                        <Input id="Belnr" placeholder="Document" width="10rem"/>
+                 
+                        <Label text="계정 번호" />
+                        <Input id="Racct" placeholder="Account" width="13rem"/>
+                  
+                        <Label text="설명" />
+                        <Input id="Txt50" placeholder="Description" width="13rem"/>
+
+                        <Label text="Remark" />
+                        <Input id="Remark" placeholder="Remark" width="13rem"/>
+                  
+                        <Label text="금액" />
+                        <Input id="Hsl" placeholder="Amount" width="13rem"/>
+                    
+                        <Label text="잔액 거래 통화" />
+                        <Input id="Rtcur" placeholder="Currency" width="13rem"/>
+                   
+                        <Label text="Pindicator" />
+                        <Input id="PostYn" placeholder="Pindicator" width="13rem"/>
+                        
+                    </f:content>
+                </f:SimpleForm>
+            </Panel>
+
+
+
+
+    </Page>
+</mvc:View>
